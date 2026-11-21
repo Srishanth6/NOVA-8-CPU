@@ -1,0 +1,11 @@
+VCD info: dumpfile sim/tb_ir.vcd opened for output.
+PASS  reset -> 0000 (NOP) : ir=0000 op=0 rd=0 rs=0 imm=00
+PASS  load 3655 fields : ir=3655 op=3 rd=1 rs=2 imm=55
+PASS  ir_load=0 holds : ir=3655 op=3 rd=1 rs=2 imm=55
+PASS  load EFAB fields : ir=efab op=e rd=3 rs=3 imm=ab
+PASS  load C810 fields : ir=c810 op=c rd=2 rs=0 imm=10
+PASS  reset beats load : ir=0000 op=0 rd=0 rs=0 imm=00
+------------------------------------------
+SUMMARY tb_ir: 6 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_ir.v:102: $finish called at 70000 (1ps)

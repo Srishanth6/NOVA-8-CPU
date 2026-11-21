@@ -1,0 +1,17 @@
+VCD info: dumpfile sim/tb_data_ram.vcd opened for output.
+PASS  read 00 : ram[00]=11
+PASS  read 01 : ram[01]=22
+PASS  read 7F : ram[7f]=80
+PASS  read 80 : ram[80]=5a
+PASS  read FF : ram[ff]=ff
+PASS  w_en=0 does not write : ram[01]=22
+PASS  overwrite 7F : ram[7f]=00
+PASS  80 unchanged : ram[80]=5a
+PASS  00 unchanged : ram[00]=11
+PASS  before edge still old : ram[01]=22
+PASS  after edge updated : ram[01]=c3
+PASS  all 256 addresses (addr ^ A5)
+------------------------------------------
+SUMMARY tb_data_ram: 12 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_data_ram.v:128: $finish called at 5536000 (1ps)

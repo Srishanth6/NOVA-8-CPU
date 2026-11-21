@@ -1,0 +1,41 @@
+VCD info: dumpfile sim/tb_control_unit.vcd opened for output.
+PASS  reset -> FETCH : state=0
+PASS  LDI alu_b_sel = imm : 1
+PASS  MOV alu_b_sel = rs : 0
+PASS  LD  wb_sel = mdr : 1
+PASS  ADD wb_sel = alu_out : 0
+PASS  NOP : states=01000 strobes=c000000000
+PASS  MOV (no flags) : states=01240 strobes=c000041000
+PASS  LDI (no flags) : states=01240 strobes=c000041000
+PASS  ADD : states=01240 strobes=c0000c1000
+PASS  SUB : states=01240 strobes=c0000c1000
+PASS  AND : states=01240 strobes=c0000c1000
+PASS  OR : states=01240 strobes=c0000c1000
+PASS  XOR : states=01240 strobes=c0000c1000
+PASS  NOT : states=01240 strobes=c0000c1000
+PASS  SHL : states=01240 strobes=c0000c1000
+PASS  SHR : states=01240 strobes=c0000c1000
+PASS  LD : states=01340 strobes=c000011000
+PASS  ST : states=01300 strobes=c000020000
+PASS  JMP : states=01200 strobes=c000200000
+PASS  BRZ  Z=1 taken : states=01200 strobes=c000200000
+PASS  BRZ  Z=0 not taken : states=01200 strobes=c000000000
+PASS  BRC  C=1 taken : states=01200 strobes=c000200000
+PASS  BRC  C=0 not taken : states=01200 strobes=c000000000
+PASS  BRN  N=1 taken : states=01200 strobes=c000200000
+PASS  BRN  N=0 not taken : states=01200 strobes=c000000000
+PASS  BRNZ Z=0 taken : states=01200 strobes=c000200000
+PASS  BRNZ Z=1 not taken : states=01200 strobes=c000000000
+PASS  ADD reached EXECUTE : state=2
+PASS  reset mid-instr -> FETCH : state=0
+PASS  HLT : states=01555 strobes=c000000000
+PASS  halted = 1 : 1
+PASS  still HALT after 5 clocks : state=5
+PASS  no fetch while halted : 0
+PASS  no strobes while halted : 0
+PASS  reset leaves HALT : state=0
+PASS  halted = 0 after reset : 0
+------------------------------------------
+SUMMARY tb_control_unit: 36 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_control_unit.v:254: $finish called at 931000 (1ps)

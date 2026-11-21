@@ -1,0 +1,27 @@
+NOVA-8 assembler check
+Date: 21 Nov 2026, about 5:45 PM IST (Asia/Calcutta)
+Box: python3 3.13.5, assembler.py run from /workspace/nova8
+Command: python3 assembler.py programs/<name>.asm -o /tmp/nova8_asm_out/<name>.hex
+
+All seven .asm programs assembled successfully (no errors, no HLT warnings).
+
+Word counts (all 256, including NOP padding):
+  arith.asm      31 words  -> arith.hex
+  branch.asm     60 words  -> branch.hex
+  countdown.asm   9 words  -> countdown.hex
+  fib.asm        13 words  -> fib.hex
+  memcopy.asm    33 words  -> memcopy.hex
+  misc.asm       64 words  -> misc.hex
+  smoke.asm      13 words  -> smoke.hex
+
+Comparison vs the hex files in programs/:
+  Every file matches exactly after normalizing CRLF vs LF.
+  Repo hex files use Windows CRLF (258 CRLF lines). assembler.py on Linux
+  writes Unix LF. Hex words, comments, and source paths are identical.
+  programs/program.hex is identical to programs/smoke.hex (eol-normalized).
+
+ISA encoding examples from docs/isa.md were also checked against assembler.py
+(NOP, MOV R3,R2, LDI R1,0x03, ADD/SUB/AND/OR/XOR, NOT, SHL, SHR, LD, ST,
+JMP 0x0C, BRNZ 0x08, HLT). All 16 encodings match.
+
+RESULT: ASSEMBLER OUTPUT MATCHES REPO HEX (line endings only differ)

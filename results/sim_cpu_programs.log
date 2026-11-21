@@ -1,0 +1,124 @@
+VCD info: dumpfile sim/tb_cpu_programs.vcd opened for output.
+PASS  all 8 CPUs reached HLT
+PASS  smoke R0 : 08
+PASS  smoke R1 : 01
+PASS  smoke R2 : 05
+PASS  smoke R3 : 00
+PASS  smoke RAM[10] : 08
+PASS  smoke ZCNV=1000 : 08
+PASS  smoke PC at HLT : 0d
+PASS  smoke RAM writes : 1, all in order
+PASS  smoke cycles : 71
+PASS  arith R0 : 3c
+PASS  arith R1 : 0f
+PASS  arith R2 : 2d
+PASS  arith R3 : 78
+PASS  arith ADD RAM[20] : 4b
+PASS  arith SUB RAM[21] : 2d
+PASS  arith AND RAM[22] : 0c
+PASS  arith OR RAM[23] : 3f
+PASS  arith XOR RAM[24] : 33
+PASS  arith NOT RAM[25] : c3
+PASS  arith SHL RAM[26] : 78
+PASS  arith SHR RAM[27] : 1e
+PASS  arith LD+ADD RAM[28] : 78
+PASS  arith ZCNV=0000 : 00
+PASS  arith PC at HLT : 1f
+PASS  arith RAM writes : 9, all in order
+PASS  arith cycles : 113
+PASS  countdown R0 : 00
+PASS  countdown R1 : 01
+PASS  countdown R2 (passes) : 0a
+PASS  countdown R3 : 00
+PASS  countdown RAM[30] : 0a
+PASS  countdown RAM[31] : 00
+PASS  countdown ZCNV=1000 : 08
+PASS  countdown PC at HLT : 09
+PASS  countdown RAM writes : 2, all in order
+PASS  countdown cycles : 130
+PASS  memcopy src RAM[60] : de
+PASS  memcopy dst RAM[70] : de
+PASS  memcopy src RAM[61] : ad
+PASS  memcopy dst RAM[71] : ad
+PASS  memcopy src RAM[62] : be
+PASS  memcopy dst RAM[72] : be
+PASS  memcopy src RAM[63] : ef
+PASS  memcopy dst RAM[73] : ef
+PASS  memcopy src RAM[64] : 01
+PASS  memcopy dst RAM[74] : 01
+PASS  memcopy src RAM[65] : 80
+PASS  memcopy dst RAM[75] : 80
+PASS  memcopy src RAM[66] : 7f
+PASS  memcopy dst RAM[76] : 7f
+PASS  memcopy src RAM[67] : 00
+PASS  memcopy dst RAM[77] : 00
+PASS  memcopy R0 : 00
+PASS  memcopy R1 : 00
+PASS  memcopy ZCNV=0000 : 00
+PASS  memcopy PC at HLT : 21
+PASS  memcopy RAM writes : 16, all in order
+PASS  memcopy cycles : 114
+PASS  fib R0 = F12 = 144 : 90
+PASS  fib R1 = F13 = 233 : e9
+PASS  fib R2 : 00
+PASS  fib R3 : 01
+PASS  fib F13 RAM[40] : e9
+PASS  fib F12 RAM[41] : 90
+PASS  fib ZCNV=1000 : 08
+PASS  fib PC at HLT : 0d
+PASS  fib RAM writes : 2, all in order
+PASS  fib cycles : 344
+PASS  branch test RAM[50] : 01
+PASS  branch test RAM[51] : 01
+PASS  branch test RAM[52] : 01
+PASS  branch test RAM[53] : 01
+PASS  branch test RAM[54] : 01
+PASS  branch test RAM[55] : 01
+PASS  branch test RAM[56] : 01
+PASS  branch test RAM[57] : 01
+PASS  branch test RAM[58] : 01
+PASS  branch test RAM[59] : 01
+PASS  branch test RAM[5a] : 01
+PASS  branch R0 : 7f
+PASS  branch R1 : 01
+PASS  branch R2 : 01
+PASS  branch R3 : ee
+PASS  branch ZCNV=0001 (V) : 01
+PASS  branch PC at HLT : 3c
+PASS  branch RAM writes : 11, all in order
+PASS  branch cycles : 140
+PASS  misc test RAM[80] : 01
+PASS  misc test RAM[81] : 01
+PASS  misc test RAM[82] : 01
+PASS  misc test RAM[83] : 01
+PASS  misc test RAM[84] : 01
+PASS  misc test RAM[85] : 01
+PASS  misc test RAM[86] : 01
+PASS  misc test RAM[87] : 01
+PASS  misc test RAM[88] : 01
+PASS  misc V chain RAM[89] : 7f
+PASS  misc ST RAM[90] : 5a
+PASS  misc LD+ST RAM[91] : 5a
+PASS  misc R0 : 7f
+PASS  misc R1 : 01
+PASS  misc R2 : 01
+PASS  misc R3 : ee
+PASS  misc ZCNV=0001 (V kept) : 01
+PASS  misc PC at HLT : 40
+PASS  misc RAM writes : 12, all in order
+PASS  misc cycles : 168
+PASS  cd_reset running at reset : 01
+PASS  cd_reset R0 : 00
+PASS  cd_reset R1 : 01
+PASS  cd_reset R2 (passes) : 0a
+PASS  cd_reset R3 : 00
+PASS  cd_reset RAM[30] : 0a
+PASS  cd_reset RAM[31] : 00
+PASS  cd_reset ZCNV=1000 : 08
+PASS  cd_reset PC at HLT : 09
+PASS  cd_reset RAM writes : 2, all in order
+PASS  cd_reset cycles : 130
+------------------------------------------
+SUMMARY tb_cpu_programs: 119 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_cpu_programs.v:352: $finish called at 3460000 (1ps)

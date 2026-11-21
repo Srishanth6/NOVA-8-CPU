@@ -1,0 +1,12 @@
+sim/nova8_gate_arith.v:3: warning: timescale for nova8_gate inherited from another file.
+rtl/reg_file.v:1: ...: The inherited timescale is here.
+VCD info: dumpfile sim/tb_gls.vcd opened for output.
+        program sim/gls_prog.hex
+PASS  RTL reached HLT : 1
+PASS  gate reached HLT : 1
+PASS  lockstep compare : 113 cycles to HLT, 117 compared, 0 mismatches
+PASS  RAM write count : 9 on both
+------------------------------------------
+SUMMARY tb_gls: 4 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_gls.v:155: $finish called at 1180000 (1ps)

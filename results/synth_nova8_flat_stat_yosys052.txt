@@ -1,0 +1,32 @@
+26. Printing statistics.
+
+=== nova8_top ===
+
+   Number of wires:               2218
+   Number of wire bits:           4257
+   Number of public wires:         328
+   Number of public wire bits:    2345
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               3048
+     $_ANDNOT_                     341
+     $_AND_                         34
+     $_DFFE_PP_                   1024
+     $_DFF_P_                        6
+     $_MUX_                       1105
+     $_NAND_                         8
+     $_NOR_                         28
+     $_NOT_                         42
+     $_ORNOT_                       29
+     $_OR_                         323
+     $_SDFFE_PP0P_                  73
+     $_XNOR_                         5
+     $_XOR_                         23
+     $scopeinfo                      7
+
+13.27. Executing CHECK pass (checking for obvious problems).
+Checking module nova8_top...
+Found and reported 0 problems.

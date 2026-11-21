@@ -1,0 +1,26 @@
+VCD info: dumpfile sim/tb_nova8_top.vcd opened for output.
+        pc=01  R0 <= 05
+        pc=02  R1 <= 03
+        pc=03  R0 <= 08
+        pc=04  RAM[10] <= 08
+        pc=05  R2 <= 08
+        pc=06  R2 <= 05
+        pc=07  R3 <= 05
+        pc=08  R1 <= 01
+        pc=09  R3 <= 04
+        pc=09  R3 <= 03
+        pc=09  R3 <= 02
+        pc=09  R3 <= 01
+        pc=09  R3 <= 00
+PASS  reached HLT after 71 cycles
+PASS  R0 : 08
+PASS  R1 : 01
+PASS  R2 : 05
+PASS  R3 (loop counted to 0) : 00
+PASS  RAM[10] : 08
+PASS  flags ZCNV = 1000 : 08
+PASS  PC after HLT : 0d
+------------------------------------------
+SUMMARY tb_nova8_top: 8 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_nova8_top.v:93: $finish called at 730000 (1ps)

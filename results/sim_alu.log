@@ -1,0 +1,35 @@
+VCD info: dumpfile sim/tb_alu.vcd opened for output.
+PASS  ADD 3+4 : result=07 ZCNV=0000
+PASS  ADD 0+0 (zero) : result=00 ZCNV=1000
+PASS  ADD 127+1 (overflow) : result=80 ZCNV=0011
+PASS  ADD 255+1 (carry, zero) : result=00 ZCNV=1100
+PASS  ADD -128+-128 (C,V,Z) : result=00 ZCNV=1101
+PASS  ADD -1+-1 (C,N) : result=fe ZCNV=0110
+PASS  SUB 5-3 : result=02 ZCNV=0000
+PASS  SUB 7-7 (zero) : result=00 ZCNV=1000
+PASS  SUB 0-1 (borrow, neg) : result=ff ZCNV=0110
+PASS  SUB -128-1 (overflow) : result=7f ZCNV=0001
+PASS  SUB 127-(-1) (C,N,V) : result=80 ZCNV=0111
+PASS  AND keeps C,V : result=30 ZCNV=0101
+PASS  AND zero : result=00 ZCNV=1000
+PASS  OR negative : result=81 ZCNV=0010
+PASS  OR zero, clears N : result=00 ZCNV=1000
+PASS  XOR self = 0 keeps C : result=00 ZCNV=1100
+PASS  XOR negative : result=a5 ZCNV=0010
+PASS  NOT 0x00 (ignores b) : result=ff ZCNV=0010
+PASS  NOT 0xFF keeps V : result=00 ZCNV=1001
+PASS  SHL 0x81 (carry out) : result=02 ZCNV=0100
+PASS  SHL 0x40 (negative) : result=80 ZCNV=0010
+PASS  SHL 0x80 (C, Z) : result=00 ZCNV=1100
+PASS  SHL clears C, keeps V : result=02 ZCNV=0001
+PASS  SHR 0x01 (C, Z) : result=00 ZCNV=1100
+PASS  SHR 0x80 (logical) : result=40 ZCNV=0000
+PASS  SHR 0xFF (carry out) : result=7f ZCNV=0100
+PASS  NOP keeps flags : result=34 ZCNV=0111
+PASS  MOV pass b, keeps flags : result=00 ZCNV=1010
+PASS  LDI pass imm, no N : result=9c ZCNV=0000
+PASS  LD keeps flags : result=56 ZCNV=1111
+------------------------------------------
+SUMMARY tb_alu: 30 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_alu.v:103: $finish called at 300000 (1ps)

@@ -1,0 +1,20 @@
+VCD info: dumpfile sim/tb_pc.vcd opened for output.
+PASS  reset -> 00 : pc=00
+PASS  hold (no load, no inc) : pc=00
+PASS  hold again : pc=00
+PASS  inc -> 01 : pc=01
+PASS  inc -> 02 : pc=02
+PASS  inc -> 03 : pc=03
+PASS  load F0 : pc=f0
+PASS  inc after load -> F1 : pc=f1
+PASS  load FE : pc=fe
+PASS  inc -> FF : pc=ff
+PASS  inc wraps FF -> 00 : pc=00
+PASS  load beats inc : pc=40
+PASS  hold after load : pc=40
+PASS  reset beats inc : pc=00
+PASS  inc after reset -> 01 : pc=01
+------------------------------------------
+SUMMARY tb_pc: 15 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_pc.v:94: $finish called at 160000 (1ps)

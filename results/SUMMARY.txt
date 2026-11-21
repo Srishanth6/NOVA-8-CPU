@@ -1,0 +1,57 @@
+NOVA-8 v1 verification summary
+==============================
+Date: 21 Nov 2026
+Tools: Icarus Verilog 12.0 (iverilog -g2012 / vvp), Yosys 0.52 (cross-check)
+       and Yosys 0.71 (synth/nova8_*.txt)
+
+1. Assembler (assembler.py)
+---------------------------
+All 7 programs assemble cleanly with no errors or HLT warnings:
+  arith.asm (31 words), branch.asm (60), countdown.asm (9), fib.asm (13),
+  memcopy.asm (33), misc.asm (64), smoke.asm (13).
+All .hex files are padded to 256 words (0000 = NOP) and match programs/*.hex.
+programs/program.hex matches programs/smoke.hex.
+
+2. RTL testbenches (iverilog -g2012, vvp)
+-----------------------------------------
+  tb_alu              30 passed, 0 failed
+  tb_reg_file         18 passed, 0 failed
+  tb_pc               15 passed, 0 failed
+  tb_ir                6 passed, 0 failed
+  tb_instr_rom         8 passed, 0 failed
+  tb_data_ram         12 passed, 0 failed
+  tb_control_unit     36 passed, 0 failed
+  tb_nova8_top         8 passed, 0 failed
+  tb_cpu_programs    119 passed, 0 failed
+  Total              252 passed, 0 failed
+
+3. Per-program CPU results (tb_cpu_programs + tb_nova8_top)
+-----------------------------------------------------------
+  smoke       71 cycles  PC=0D  R0=08 R1=01 R2=05 R3=00  ZCNV=1000  RAM[10]=08
+  arith      113 cycles  PC=1F  R0=3C R1=0F R2=2D R3=78  ZCNV=0000  RAM[20..28]=4B 2D 0C 3F 33 C3 78 1E 78
+  countdown  130 cycles  PC=09  R0=00 R1=01 R2=0A R3=00  ZCNV=1000  RAM[30]=0A RAM[31]=00
+  memcopy    114 cycles  PC=21  R0=00 R1=00              ZCNV=0000  RAM[60..67]=RAM[70..77]
+  fib        344 cycles  PC=0D  R0=90 R1=E9 R2=00 R3=01  ZCNV=1000  RAM[40]=E9 (233) RAM[41]=90 (144)
+  branch     140 cycles  PC=3C  R0=7F R1=01 R2=01 R3=EE  ZCNV=0001  RAM[50..5A]=01
+  misc       168 cycles  PC=40  R0=7F R1=01 R2=01 R3=EE  ZCNV=0001  RAM[80..88]=01 [89]=7F [90]=[91]=5A
+  cd_reset   130 cycles  PC=09  R0=00 R1=01 R2=0A R3=00  ZCNV=1000  mid-run reset at cycle 61
+
+4. Gate-level simulation (tb_gls + synth/gls.ys)
+------------------------------------------------
+Flattened Yosys 0.52 gate netlist compared against RTL nova8_top every clock cycle:
+  smoke (71 cyc, 75 compared), arith (113, 117), countdown (130, 134),
+  memcopy (114, 118), fib (344, 348), branch (140, 144), misc (168, 172):
+  0 mismatches on all 7 programs.
+
+5. Synthesis (synth/synth.ys)
+-----------------------------
+check / check -assert: 0 problems, no latches.
+  Yosys 0.71 (synth/nova8_*.txt): 5025 hierarchical cells, 2127 FFs (2388 flattened).
+  Yosys 0.52 (results/synth_*.txt): 5347 hierarchical cells, 2127 FFs (3048 flattened).
+data_ram accounts for ~87-88% of hierarchical cells (2048 FFs + comb read mux).
+
+6. Waveforms
+------------
+  results/wave_alu.png
+  results/wave_reg_file.png
+  results/wave_nova8_top.png

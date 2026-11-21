@@ -1,0 +1,2540 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Running command `read_verilog rtl/*.v; hierarchy -check -top nova8_top; synth -top nova8_top; check -assert; stat' --
+
+1. Executing Verilog-2005 frontend: rtl/alu.v
+Parsing Verilog input from `rtl/alu.v' to AST representation.
+Generating RTLIL representation for module `\alu'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/control_unit.v
+Parsing Verilog input from `rtl/control_unit.v' to AST representation.
+Generating RTLIL representation for module `\control_unit'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/data_ram.v
+Parsing Verilog input from `rtl/data_ram.v' to AST representation.
+Generating RTLIL representation for module `\data_ram'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/instr_rom.v
+Parsing Verilog input from `rtl/instr_rom.v' to AST representation.
+Generating RTLIL representation for module `\instr_rom'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/ir.v
+Parsing Verilog input from `rtl/ir.v' to AST representation.
+Generating RTLIL representation for module `\ir'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/nova8_top.v
+Parsing Verilog input from `rtl/nova8_top.v' to AST representation.
+Generating RTLIL representation for module `\nova8_top'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/pc.v
+Parsing Verilog input from `rtl/pc.v' to AST representation.
+Generating RTLIL representation for module `\pc'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/reg_file.v
+Parsing Verilog input from `rtl/reg_file.v' to AST representation.
+Generating RTLIL representation for module `\reg_file'.
+Successfully finished Verilog frontend.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \nova8_top
+Used module:     \data_ram
+Used module:     \alu
+Used module:     \reg_file
+Used module:     \control_unit
+Used module:     \ir
+Used module:     \instr_rom
+Used module:     \pc
+Parameter \INIT_FILE = 160'0111000001110010011011110110011101110010011000010110110101110011001011110111000001110010011011110110011101110010011000010110110100101110011010000110010101111000
+
+9.2. Executing AST frontend in derive mode using pre-parsed AST for module `\instr_rom'.
+Parameter \INIT_FILE = 160'0111000001110010011011110110011101110010011000010110110101110011001011110111000001110010011011110110011101110010011000010110110100101110011010000110010101111000
+Generating RTLIL representation for module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+
+9.3. Analyzing design hierarchy..
+Top module:  \nova8_top
+Used module:     \data_ram
+Used module:     \alu
+Used module:     \reg_file
+Used module:     \control_unit
+Used module:     \ir
+Used module:     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom
+Used module:     \pc
+
+9.4. Analyzing design hierarchy..
+Top module:  \nova8_top
+Used module:     \data_ram
+Used module:     \alu
+Used module:     \reg_file
+Used module:     \control_unit
+Used module:     \ir
+Used module:     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom
+Used module:     \pc
+Removing unused module `\instr_rom'.
+Removed 1 unused modules.
+
+10. Executing SYNTH pass.
+
+10.1. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1.1. Analyzing design hierarchy..
+Top module:  \nova8_top
+Used module:     \data_ram
+Used module:     \alu
+Used module:     \reg_file
+Used module:     \control_unit
+Used module:     \ir
+Used module:     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom
+Used module:     \pc
+
+10.1.2. Analyzing design hierarchy..
+Top module:  \nova8_top
+Used module:     \data_ram
+Used module:     \alu
+Used module:     \reg_file
+Used module:     \control_unit
+Used module:     \ir
+Used module:     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom
+Used module:     \pc
+Removed 0 unused modules.
+
+10.2. Executing PROC pass (convert processes to netlists).
+
+10.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.$proc$rtl/instr_rom.v:0$66'.
+Cleaned up 0 empty switches.
+
+10.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$rtl/reg_file.v:53$63 in module reg_file.
+Marked 1 switch rules as full_case in process $proc$rtl/reg_file.v:43$62 in module reg_file.
+Marked 2 switch rules as full_case in process $proc$rtl/reg_file.v:26$61 in module reg_file.
+Marked 2 switch rules as full_case in process $proc$rtl/pc.v:15$59 in module pc.
+Marked 1 switch rules as full_case in process $proc$rtl/nova8_top.v:129$57 in module nova8_top.
+Marked 1 switch rules as full_case in process $proc$rtl/ir.v:19$55 in module ir.
+Marked 1 switch rules as full_case in process $proc$rtl/data_ram.v:17$44 in module data_ram.
+Marked 1 switch rules as full_case in process $proc$rtl/control_unit.v:111$33 in module control_unit.
+Marked 2 switch rules as full_case in process $proc$rtl/control_unit.v:91$29 in module control_unit.
+Marked 1 switch rules as full_case in process $proc$rtl/control_unit.v:83$28 in module control_unit.
+Marked 1 switch rules as full_case in process $proc$rtl/control_unit.v:72$26 in module control_unit.
+Marked 1 switch rules as full_case in process $proc$rtl/alu.v:37$4 in module alu.
+Removed a total of 0 dead cases.
+
+10.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 19 assignments to connections.
+
+10.2.4. Executing PROC_INIT pass (extract init attributes).
+
+10.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+10.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~21 debug messages>
+
+10.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\reg_file.$proc$rtl/reg_file.v:53$63'.
+     1/1: $1\data_b[7:0]
+Creating decoders for process `\reg_file.$proc$rtl/reg_file.v:43$62'.
+     1/1: $1\data_a[7:0]
+Creating decoders for process `\reg_file.$proc$rtl/reg_file.v:26$61'.
+     1/4: $0\r3[7:0]
+     2/4: $0\r2[7:0]
+     3/4: $0\r1[7:0]
+     4/4: $0\r0[7:0]
+Creating decoders for process `\pc.$proc$rtl/pc.v:15$59'.
+     1/1: $0\pc_out[7:0]
+Creating decoders for process `\nova8_top.$proc$rtl/nova8_top.v:129$57'.
+     1/3: $0\mdr[7:0]
+     2/3: $0\alu_out[7:0]
+     3/3: $0\flags[3:0]
+Creating decoders for process `\ir.$proc$rtl/ir.v:19$55'.
+     1/1: $0\ir_out[15:0]
+Creating decoders for process `\data_ram.$proc$rtl/data_ram.v:17$44'.
+     1/3: $1$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$50
+     2/3: $1$memwr$\mem$rtl/data_ram.v:19$43_DATA[7:0]$49
+     3/3: $1$memwr$\mem$rtl/data_ram.v:19$43_ADDR[7:0]$48
+Creating decoders for process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+     1/8: $1\pc_inc[0:0]
+     2/8: $1\ir_load[0:0]
+     3/8: $1\mdr_load[0:0]
+     4/8: $1\mem_we[0:0]
+     5/8: $1\alu_load[0:0]
+     6/8: $1\flags_we[0:0]
+     7/8: $1\reg_we[0:0]
+     8/8: $1\pc_load[0:0]
+Creating decoders for process `\control_unit.$proc$rtl/control_unit.v:91$29'.
+     1/2: $2\next_state[2:0]
+     2/2: $1\next_state[2:0]
+Creating decoders for process `\control_unit.$proc$rtl/control_unit.v:83$28'.
+     1/1: $0\state[2:0]
+Creating decoders for process `\control_unit.$proc$rtl/control_unit.v:72$26'.
+     1/1: $1\branch_taken[0:0]
+Creating decoders for process `\alu.$proc$rtl/alu.v:37$4'.
+     1/4: $1\v[0:0]
+     2/4: $1\c[0:0]
+     3/4: $1\result[7:0]
+     4/4: $1\sum9[8:0]
+
+10.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\reg_file.\data_b' from process `\reg_file.$proc$rtl/reg_file.v:53$63'.
+No latch inferred for signal `\reg_file.\data_a' from process `\reg_file.$proc$rtl/reg_file.v:43$62'.
+No latch inferred for signal `\control_unit.\ir_load' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\pc_inc' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\pc_load' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\reg_we' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\flags_we' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\alu_load' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\mem_we' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\mdr_load' from process `\control_unit.$proc$rtl/control_unit.v:111$33'.
+No latch inferred for signal `\control_unit.\next_state' from process `\control_unit.$proc$rtl/control_unit.v:91$29'.
+No latch inferred for signal `\control_unit.\branch_taken' from process `\control_unit.$proc$rtl/control_unit.v:72$26'.
+No latch inferred for signal `\alu.\result' from process `\alu.$proc$rtl/alu.v:37$4'.
+No latch inferred for signal `\alu.\sum9' from process `\alu.$proc$rtl/alu.v:37$4'.
+No latch inferred for signal `\alu.\c' from process `\alu.$proc$rtl/alu.v:37$4'.
+No latch inferred for signal `\alu.\v' from process `\alu.$proc$rtl/alu.v:37$4'.
+
+10.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\reg_file.\r0' using process `\reg_file.$proc$rtl/reg_file.v:26$61'.
+  created $dff cell `$procdff$249' with positive edge clock.
+Creating register for signal `\reg_file.\r1' using process `\reg_file.$proc$rtl/reg_file.v:26$61'.
+  created $dff cell `$procdff$250' with positive edge clock.
+Creating register for signal `\reg_file.\r2' using process `\reg_file.$proc$rtl/reg_file.v:26$61'.
+  created $dff cell `$procdff$251' with positive edge clock.
+Creating register for signal `\reg_file.\r3' using process `\reg_file.$proc$rtl/reg_file.v:26$61'.
+  created $dff cell `$procdff$252' with positive edge clock.
+Creating register for signal `\pc.\pc_out' using process `\pc.$proc$rtl/pc.v:15$59'.
+  created $dff cell `$procdff$253' with positive edge clock.
+Creating register for signal `\nova8_top.\flags' using process `\nova8_top.$proc$rtl/nova8_top.v:129$57'.
+  created $dff cell `$procdff$254' with positive edge clock.
+Creating register for signal `\nova8_top.\alu_out' using process `\nova8_top.$proc$rtl/nova8_top.v:129$57'.
+  created $dff cell `$procdff$255' with positive edge clock.
+Creating register for signal `\nova8_top.\mdr' using process `\nova8_top.$proc$rtl/nova8_top.v:129$57'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\ir.\ir_out' using process `\ir.$proc$rtl/ir.v:19$55'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `\data_ram.$memwr$\mem$rtl/data_ram.v:19$43_ADDR' using process `\data_ram.$proc$rtl/data_ram.v:17$44'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `\data_ram.$memwr$\mem$rtl/data_ram.v:19$43_DATA' using process `\data_ram.$proc$rtl/data_ram.v:17$44'.
+  created $dff cell `$procdff$259' with positive edge clock.
+Creating register for signal `\data_ram.$memwr$\mem$rtl/data_ram.v:19$43_EN' using process `\data_ram.$proc$rtl/data_ram.v:17$44'.
+  created $dff cell `$procdff$260' with positive edge clock.
+Creating register for signal `\control_unit.\state' using process `\control_unit.$proc$rtl/control_unit.v:83$28'.
+  created $dff cell `$procdff$261' with positive edge clock.
+
+10.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+10.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\reg_file.$proc$rtl/reg_file.v:53$63'.
+Removing empty process `reg_file.$proc$rtl/reg_file.v:53$63'.
+Found and cleaned up 1 empty switch in `\reg_file.$proc$rtl/reg_file.v:43$62'.
+Removing empty process `reg_file.$proc$rtl/reg_file.v:43$62'.
+Found and cleaned up 3 empty switches in `\reg_file.$proc$rtl/reg_file.v:26$61'.
+Removing empty process `reg_file.$proc$rtl/reg_file.v:26$61'.
+Found and cleaned up 3 empty switches in `\pc.$proc$rtl/pc.v:15$59'.
+Removing empty process `pc.$proc$rtl/pc.v:15$59'.
+Found and cleaned up 4 empty switches in `\nova8_top.$proc$rtl/nova8_top.v:129$57'.
+Removing empty process `nova8_top.$proc$rtl/nova8_top.v:129$57'.
+Found and cleaned up 2 empty switches in `\ir.$proc$rtl/ir.v:19$55'.
+Removing empty process `ir.$proc$rtl/ir.v:19$55'.
+Found and cleaned up 1 empty switch in `\data_ram.$proc$rtl/data_ram.v:17$44'.
+Removing empty process `data_ram.$proc$rtl/data_ram.v:17$44'.
+Found and cleaned up 1 empty switch in `\control_unit.$proc$rtl/control_unit.v:111$33'.
+Removing empty process `control_unit.$proc$rtl/control_unit.v:111$33'.
+Found and cleaned up 2 empty switches in `\control_unit.$proc$rtl/control_unit.v:91$29'.
+Removing empty process `control_unit.$proc$rtl/control_unit.v:91$29'.
+Found and cleaned up 1 empty switch in `\control_unit.$proc$rtl/control_unit.v:83$28'.
+Removing empty process `control_unit.$proc$rtl/control_unit.v:83$28'.
+Found and cleaned up 1 empty switch in `\control_unit.$proc$rtl/control_unit.v:72$26'.
+Removing empty process `control_unit.$proc$rtl/control_unit.v:72$26'.
+Found and cleaned up 1 empty switch in `\alu.$proc$rtl/alu.v:37$4'.
+Removing empty process `alu.$proc$rtl/alu.v:37$4'.
+Cleaned up 21 empty switches.
+
+10.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module reg_file.
+<suppressed ~3 debug messages>
+Optimizing module pc.
+Optimizing module nova8_top.
+Optimizing module ir.
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module data_ram.
+Optimizing module control_unit.
+<suppressed ~5 debug messages>
+Optimizing module alu.
+<suppressed ~1 debug messages>
+
+10.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module reg_file.
+Optimizing module pc.
+Optimizing module nova8_top.
+Optimizing module ir.
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module data_ram.
+Optimizing module control_unit.
+Optimizing module alu.
+
+10.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \alu..
+Removed 6 unused cells and 105 unused wires.
+<suppressed ~15 debug messages>
+
+10.5. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom...
+Checking module alu...
+Checking module control_unit...
+Checking module data_ram...
+Checking module ir...
+Checking module nova8_top...
+Checking module pc...
+Checking module reg_file...
+Found and reported 0 problems.
+
+10.6. Executing OPT pass (performing simple optimizations).
+
+10.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\control_unit'.
+<suppressed ~42 debug messages>
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 20 cells.
+
+10.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$196.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 1 multiplexer ports.
+<suppressed ~28 debug messages>
+
+10.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+    Consolidated identical input bits for $mux cell $procmux$140:
+      Old ports: A=8'00000000, B=8'11111111, Y=$0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0]
+      New connections: $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [7:1] = { $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0] $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0] $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0] $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0] $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0] $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0] $0$memwr$\mem$rtl/data_ram.v:19$43_EN[7:0]$47 [0] }
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 1 changes.
+
+10.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 1 cells.
+
+10.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 0 unused cells and 20 unused wires.
+<suppressed ~2 debug messages>
+
+10.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+10.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 0 changes.
+
+10.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.6.16. Finished OPT passes. (There is nothing left to do.)
+
+10.7. Executing FSM pass (extract and optimize FSM).
+
+10.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking control_unit.state as FSM state register:
+    Register is connected to module port.
+    Users of register don't seem to benefit from recoding.
+
+10.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+10.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+10.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+10.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+10.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+10.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+10.8. Executing OPT pass (performing simple optimizations).
+
+10.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+10.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 0 changes.
+
+10.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$261 ($dff) from module control_unit (D = \next_state, Q = \state, rval = 3'000).
+Adding SRST signal on $procdff$257 ($dff) from module ir (D = $procmux$134_Y, Q = \ir_out, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$264 ($sdff) from module ir (D = \ir_in, Q = \ir_out).
+Adding SRST signal on $procdff$256 ($dff) from module nova8_top (D = $procmux$119_Y, Q = \mdr, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$266 ($sdff) from module nova8_top (D = \ram_rdata, Q = \mdr).
+Adding SRST signal on $procdff$255 ($dff) from module nova8_top (D = $procmux$124_Y, Q = \alu_out, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$268 ($sdff) from module nova8_top (D = \alu_result, Q = \alu_out).
+Adding SRST signal on $procdff$254 ($dff) from module nova8_top (D = $procmux$129_Y, Q = \flags, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:266:slice$270 ($sdff) from module nova8_top (D = \alu_flags, Q = \flags).
+Adding SRST signal on $procdff$253 ($dff) from module pc (D = $procmux$114_Y, Q = \pc_out, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$272 ($sdff) from module pc (D = $procmux$114_Y, Q = \pc_out).
+Adding SRST signal on $procdff$252 ($dff) from module reg_file (D = $procmux$79_Y, Q = \r3, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$276 ($sdff) from module reg_file (D = \w_data, Q = \r3).
+Adding SRST signal on $procdff$251 ($dff) from module reg_file (D = $procmux$87_Y, Q = \r2, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$280 ($sdff) from module reg_file (D = \w_data, Q = \r2).
+Adding SRST signal on $procdff$250 ($dff) from module reg_file (D = $procmux$96_Y, Q = \r1, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$284 ($sdff) from module reg_file (D = \w_data, Q = \r1).
+Adding SRST signal on $procdff$249 ($dff) from module reg_file (D = $procmux$106_Y, Q = \r0, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$288 ($sdff) from module reg_file (D = \w_data, Q = \r0).
+
+10.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 22 unused cells and 22 unused wires.
+<suppressed ~27 debug messages>
+
+10.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+<suppressed ~1 debug messages>
+Optimizing module reg_file.
+
+10.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+10.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 0 changes.
+
+10.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.8.16. Finished OPT passes. (There is nothing left to do.)
+
+10.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 24 address bits (of 32) from memory init port $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.$meminit$\mem$rtl/instr_rom.v:0$65 (mem).
+Removed top 2 bits (of 4) from port B of cell alu.$ge$rtl/alu.v:35$1 ($ge).
+Removed top 1 bits (of 9) from port A of cell alu.$add$rtl/alu.v:46$5 ($add).
+Removed top 1 bits (of 9) from port B of cell alu.$add$rtl/alu.v:46$5 ($add).
+Removed top 1 bits (of 9) from port A of cell alu.$sub$rtl/alu.v:53$9 ($sub).
+Removed top 1 bits (of 9) from port B of cell alu.$sub$rtl/alu.v:53$9 ($sub).
+Removed top 1 bits (of 4) from port B of cell alu.$procmux$221_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell alu.$procmux$222_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell alu.$procmux$234_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell alu.$procmux$235_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell alu.$procmux$236_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell control_unit.$ge$rtl/control_unit.v:66$19 ($ge).
+Removed top 3 bits (of 4) from port B of cell control_unit.$eq$rtl/control_unit.v:68$22 ($eq).
+Removed top 2 bits (of 4) from port B of cell control_unit.$eq$rtl/control_unit.v:140$40 ($eq).
+Removed top 1 bits (of 3) from port B of cell control_unit.$procmux$163_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell control_unit.$procmux$172_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell control_unit.$procmux$197_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell control_unit.$procmux$211_CMP0 ($eq).
+Removed top 7 bits (of 8) from port B of cell pc.$add$rtl/pc.v:21$60 ($add).
+Removed top 1 bits (of 2) from port B of cell reg_file.$procmux$70_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell reg_file.$procmux$75_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell reg_file.$procmux$95_CMP0 ($eq).
+
+10.10. Executing PEEPOPT pass (run peephole optimizers).
+
+10.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module alu:
+  creating $macc model for $add$rtl/alu.v:46$5 ($add).
+  creating $macc model for $sub$rtl/alu.v:53$9 ($sub).
+  creating $alu model for $macc $sub$rtl/alu.v:53$9.
+  creating $alu model for $macc $add$rtl/alu.v:46$5.
+  creating $alu model for $ge$rtl/alu.v:35$1 ($ge): new $alu
+  creating $alu model for $le$rtl/alu.v:35$2 ($le): new $alu
+  creating $alu model for $procmux$222_CMP0 ($eq): merged with $ge$rtl/alu.v:35$1.
+  creating $alu model for $procmux$225_CMP0 ($eq): merged with $le$rtl/alu.v:35$2.
+  creating $alu cell for $le$rtl/alu.v:35$2, $procmux$225_CMP0: $auto$alumacc.cc:495:replace_alu$294
+  creating $alu cell for $ge$rtl/alu.v:35$1, $procmux$222_CMP0: $auto$alumacc.cc:495:replace_alu$303
+  creating $alu cell for $add$rtl/alu.v:46$5: $auto$alumacc.cc:495:replace_alu$316
+  creating $alu cell for $sub$rtl/alu.v:53$9: $auto$alumacc.cc:495:replace_alu$319
+  created 4 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module control_unit:
+  creating $alu model for $ge$rtl/control_unit.v:66$19 ($ge): new $alu
+  creating $alu model for $le$rtl/control_unit.v:66$20 ($le): new $alu
+  creating $alu cell for $le$rtl/control_unit.v:66$20: $auto$alumacc.cc:495:replace_alu$324
+  creating $alu cell for $ge$rtl/control_unit.v:66$19: $auto$alumacc.cc:495:replace_alu$333
+  created 2 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module data_ram:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module ir:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module nova8_top:
+  created 0 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module pc:
+  creating $macc model for $add$rtl/pc.v:21$60 ($add).
+  creating $alu model for $macc $add$rtl/pc.v:21$60.
+  creating $alu cell for $add$rtl/pc.v:21$60: $auto$alumacc.cc:495:replace_alu$346
+  created 1 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module reg_file:
+  created 0 $alu and 0 $macc cells.
+
+10.13. Executing SHARE pass (SAT-based resource sharing).
+
+10.14. Executing OPT pass (performing simple optimizations).
+
+10.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+10.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 0 changes.
+
+10.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~2 debug messages>
+
+10.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+10.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 0 changes.
+
+10.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.14.16. Finished OPT passes. (There is nothing left to do.)
+
+10.15. Executing MEMORY pass.
+
+10.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+10.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+10.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing data_ram.mem write port 0.
+
+10.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+10.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\mem'[0] in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom': no output FF found.
+Checking read port address `\mem'[0] in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom': no address FF found.
+Checking read port `\mem'[0] in module `\data_ram': no output FF found.
+Checking read port address `\mem'[0] in module `\data_ram': no address FF found.
+
+10.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+10.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+10.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+10.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.17. Executing OPT pass (performing simple optimizations).
+
+10.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+<suppressed ~1 debug messages>
+Optimizing module control_unit.
+<suppressed ~8 debug messages>
+Optimizing module data_ram.
+<suppressed ~3 debug messages>
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+<suppressed ~1 debug messages>
+Optimizing module reg_file.
+
+10.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~4 debug messages>
+
+10.17.5. Finished fast OPT passes.
+
+10.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \mem in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom:
+  created 256 $dff cells and 0 static cells of width 16.
+  read interface: 0 $dff and 255 $mux cells.
+  write interface: 0 write mux blocks.
+Mapping memory \mem in module \data_ram:
+  created 256 $dff cells and 0 static cells of width 8.
+  read interface: 0 $dff and 255 $mux cells.
+  write interface: 256 write mux blocks.
+
+10.19. Executing OPT pass (performing simple optimizations).
+
+10.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+<suppressed ~237 debug messages>
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+<suppressed ~16 debug messages>
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~267 debug messages>
+
+10.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][7][0]$738:
+      Old ports: A=16'0010000000000101, B=16'0010010000000011, Y=$memory\mem$rdmux[0][6][0]$a$547
+      New ports: A=2'10, B=2'01, Y=$memory\mem$rdmux[0][6][0]$a$547 [2:1]
+      New connections: { $memory\mem$rdmux[0][6][0]$a$547 [15:3] $memory\mem$rdmux[0][6][0]$a$547 [0] } = { 5'00100 $memory\mem$rdmux[0][6][0]$a$547 [1] 8'00000001 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][7][5]$753:
+      Old ports: A=16'1101000000001100, B=16'0010000011101110, Y=$memory\mem$rdmux[0][6][2]$b$554
+      New ports: A=2'10, B=2'01, Y={ $memory\mem$rdmux[0][6][2]$b$554 [12] $memory\mem$rdmux[0][6][2]$b$554 [1] }
+      New connections: { $memory\mem$rdmux[0][6][2]$b$554 [15:13] $memory\mem$rdmux[0][6][2]$b$554 [11:2] $memory\mem$rdmux[0][6][2]$b$554 [0] } = { $memory\mem$rdmux[0][6][2]$b$554 [12] $memory\mem$rdmux[0][6][2]$b$554 [12] $memory\mem$rdmux[0][6][2]$b$554 [1] 4'0000 $memory\mem$rdmux[0][6][2]$b$554 [1] $memory\mem$rdmux[0][6][2]$b$554 [1] $memory\mem$rdmux[0][6][2]$b$554 [1] 4'0110 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][7][6]$756:
+      Old ports: A=16'1111000000000000, B=16'0000000000000000, Y=$memory\mem$rdmux[0][6][3]$a$556
+      New ports: A=1'1, B=1'0, Y=$memory\mem$rdmux[0][6][3]$a$556 [12]
+      New connections: { $memory\mem$rdmux[0][6][3]$a$556 [15:13] $memory\mem$rdmux[0][6][3]$a$556 [11:0] } = { $memory\mem$rdmux[0][6][3]$a$556 [12] $memory\mem$rdmux[0][6][3]$a$556 [12] $memory\mem$rdmux[0][6][3]$a$556 [12] 12'000000000000 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][7][2]$744:
+      Old ports: A=16'1011100000010000, B=16'0100100100000000, Y=$memory\mem$rdmux[0][6][1]$a$550
+      New ports: A=2'01, B=2'10, Y={ $memory\mem$rdmux[0][6][1]$a$550 [8] $memory\mem$rdmux[0][6][1]$a$550 [4] }
+      New connections: { $memory\mem$rdmux[0][6][1]$a$550 [15:9] $memory\mem$rdmux[0][6][1]$a$550 [7:5] $memory\mem$rdmux[0][6][1]$a$550 [3:0] } = { $memory\mem$rdmux[0][6][1]$a$550 [4] $memory\mem$rdmux[0][6][1]$a$550 [8] $memory\mem$rdmux[0][6][1]$a$550 [4] $memory\mem$rdmux[0][6][1]$a$550 [4] 10'1000000000 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][7][1]$741:
+      Old ports: A=16'0011000100000000, B=16'1100000000010000, Y=$memory\mem$rdmux[0][6][0]$b$548
+      New ports: A=2'10, B=2'01, Y={ $memory\mem$rdmux[0][6][0]$b$548 [8] $memory\mem$rdmux[0][6][0]$b$548 [4] }
+      New connections: { $memory\mem$rdmux[0][6][0]$b$548 [15:9] $memory\mem$rdmux[0][6][0]$b$548 [7:5] $memory\mem$rdmux[0][6][0]$b$548 [3:0] } = { $memory\mem$rdmux[0][6][0]$b$548 [4] $memory\mem$rdmux[0][6][0]$b$548 [4] $memory\mem$rdmux[0][6][0]$b$548 [8] $memory\mem$rdmux[0][6][0]$b$548 [8] 10'0000000000 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][7][4]$750:
+      Old ports: A=16'0100110100000000, B=16'1110001100001000, Y=$memory\mem$rdmux[0][6][2]$a$553
+      New ports: A=2'10, B=2'01, Y={ $memory\mem$rdmux[0][6][2]$a$553 [10] $memory\mem$rdmux[0][6][2]$a$553 [3] }
+      New connections: { $memory\mem$rdmux[0][6][2]$a$553 [15:11] $memory\mem$rdmux[0][6][2]$a$553 [9:4] $memory\mem$rdmux[0][6][2]$a$553 [2:0] } = { $memory\mem$rdmux[0][6][2]$a$553 [3] 1'1 $memory\mem$rdmux[0][6][2]$a$553 [3] 1'0 $memory\mem$rdmux[0][6][2]$a$553 [10] $memory\mem$rdmux[0][6][2]$a$553 [3] 8'10000000 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][7][3]$747:
+      Old ports: A=16'0001111000000000, B=16'0010010000000001, Y=$memory\mem$rdmux[0][6][1]$b$551
+      New ports: A=2'10, B=2'01, Y={ $memory\mem$rdmux[0][6][1]$b$551 [9] $memory\mem$rdmux[0][6][1]$b$551 [0] }
+      New connections: { $memory\mem$rdmux[0][6][1]$b$551 [15:10] $memory\mem$rdmux[0][6][1]$b$551 [8:1] } = { 2'00 $memory\mem$rdmux[0][6][1]$b$551 [0] $memory\mem$rdmux[0][6][1]$b$551 [9] $memory\mem$rdmux[0][6][1]$b$551 [9] 9'100000000 }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][6][0]$546:
+      Old ports: A=$memory\mem$rdmux[0][6][0]$a$547, B=$memory\mem$rdmux[0][6][0]$b$548, Y=$memory\mem$rdmux[0][5][0]$a$451
+      New ports: A={ 3'100 $memory\mem$rdmux[0][6][0]$a$547 [2:1] 1'1 }, B={ $memory\mem$rdmux[0][6][0]$b$548 [8] $memory\mem$rdmux[0][6][0]$b$548 [8] $memory\mem$rdmux[0][6][0]$b$548 [4] 3'000 }, Y={ $memory\mem$rdmux[0][5][0]$a$451 [13] $memory\mem$rdmux[0][5][0]$a$451 [8] $memory\mem$rdmux[0][5][0]$a$451 [4] $memory\mem$rdmux[0][5][0]$a$451 [2:0] }
+      New connections: { $memory\mem$rdmux[0][5][0]$a$451 [15:14] $memory\mem$rdmux[0][5][0]$a$451 [12:9] $memory\mem$rdmux[0][5][0]$a$451 [7:5] $memory\mem$rdmux[0][5][0]$a$451 [3] } = { $memory\mem$rdmux[0][5][0]$a$451 [4] $memory\mem$rdmux[0][5][0]$a$451 [4] $memory\mem$rdmux[0][5][0]$a$451 [8] 1'0 $memory\mem$rdmux[0][5][0]$a$451 [1] 5'00000 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][6][1]$549:
+      Old ports: A=$memory\mem$rdmux[0][6][1]$a$550, B=$memory\mem$rdmux[0][6][1]$b$551, Y=$memory\mem$rdmux[0][5][0]$b$452
+      New ports: A={ $memory\mem$rdmux[0][6][1]$a$550 [4] $memory\mem$rdmux[0][6][1]$a$550 [4] 3'100 $memory\mem$rdmux[0][6][1]$a$550 [8] $memory\mem$rdmux[0][6][1]$a$550 [4] 1'0 }, B={ $memory\mem$rdmux[0][6][1]$b$551 [0] $memory\mem$rdmux[0][6][1]$b$551 [9] $memory\mem$rdmux[0][6][1]$b$551 [9] 1'1 $memory\mem$rdmux[0][6][1]$b$551 [9] 2'00 $memory\mem$rdmux[0][6][1]$b$551 [0] }, Y={ $memory\mem$rdmux[0][5][0]$b$452 [13:8] $memory\mem$rdmux[0][5][0]$b$452 [4] $memory\mem$rdmux[0][5][0]$b$452 [0] }
+      New connections: { $memory\mem$rdmux[0][5][0]$b$452 [15:14] $memory\mem$rdmux[0][5][0]$b$452 [7:5] $memory\mem$rdmux[0][5][0]$b$452 [3:1] } = { $memory\mem$rdmux[0][5][0]$b$452 [4] $memory\mem$rdmux[0][5][0]$b$452 [8] 6'000000 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][6][2]$552:
+      Old ports: A=$memory\mem$rdmux[0][6][2]$a$553, B=$memory\mem$rdmux[0][6][2]$b$554, Y=$memory\mem$rdmux[0][5][1]$a$454
+      New ports: A={ $memory\mem$rdmux[0][6][2]$a$553 [3] 1'1 $memory\mem$rdmux[0][6][2]$a$553 [3] 1'0 $memory\mem$rdmux[0][6][2]$a$553 [10] $memory\mem$rdmux[0][6][2]$a$553 [3] 1'1 $memory\mem$rdmux[0][6][2]$a$553 [3] 2'00 }, B={ $memory\mem$rdmux[0][6][2]$b$554 [12] $memory\mem$rdmux[0][6][2]$b$554 [12] $memory\mem$rdmux[0][6][2]$b$554 [1] $memory\mem$rdmux[0][6][2]$b$554 [12] 5'00011 $memory\mem$rdmux[0][6][2]$b$554 [1] }, Y={ $memory\mem$rdmux[0][5][1]$a$454 [15:12] $memory\mem$rdmux[0][5][1]$a$454 [10:8] $memory\mem$rdmux[0][5][1]$a$454 [3:1] }
+      New connections: { $memory\mem$rdmux[0][5][1]$a$454 [11] $memory\mem$rdmux[0][5][1]$a$454 [7:4] $memory\mem$rdmux[0][5][1]$a$454 [0] } = { $memory\mem$rdmux[0][5][1]$a$454 [10] $memory\mem$rdmux[0][5][1]$a$454 [1] $memory\mem$rdmux[0][5][1]$a$454 [1] $memory\mem$rdmux[0][5][1]$a$454 [1] 2'00 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][6][3]$555:
+      Old ports: A=$memory\mem$rdmux[0][6][3]$a$556, B=16'0000000000000000, Y=$memory\mem$rdmux[0][5][1]$b$455
+      New ports: A=$memory\mem$rdmux[0][6][3]$a$556 [12], B=1'0, Y=$memory\mem$rdmux[0][5][1]$b$455 [12]
+      New connections: { $memory\mem$rdmux[0][5][1]$b$455 [15:13] $memory\mem$rdmux[0][5][1]$b$455 [11:0] } = { $memory\mem$rdmux[0][5][1]$b$455 [12] $memory\mem$rdmux[0][5][1]$b$455 [12] $memory\mem$rdmux[0][5][1]$b$455 [12] 12'000000000000 }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][5][1]$453:
+      Old ports: A=$memory\mem$rdmux[0][5][1]$a$454, B=$memory\mem$rdmux[0][5][1]$b$455, Y=$memory\mem$rdmux[0][4][0]$b$404
+      New ports: A={ $memory\mem$rdmux[0][5][1]$a$454 [15:12] $memory\mem$rdmux[0][5][1]$a$454 [10:8] $memory\mem$rdmux[0][5][1]$a$454 [3:1] }, B={ $memory\mem$rdmux[0][5][1]$b$455 [12] $memory\mem$rdmux[0][5][1]$b$455 [12] $memory\mem$rdmux[0][5][1]$b$455 [12] $memory\mem$rdmux[0][5][1]$b$455 [12] 6'000000 }, Y={ $memory\mem$rdmux[0][4][0]$b$404 [15:12] $memory\mem$rdmux[0][4][0]$b$404 [10:8] $memory\mem$rdmux[0][4][0]$b$404 [3:1] }
+      New connections: { $memory\mem$rdmux[0][4][0]$b$404 [11] $memory\mem$rdmux[0][4][0]$b$404 [7:4] $memory\mem$rdmux[0][4][0]$b$404 [0] } = { $memory\mem$rdmux[0][4][0]$b$404 [10] $memory\mem$rdmux[0][4][0]$b$404 [1] $memory\mem$rdmux[0][4][0]$b$404 [1] $memory\mem$rdmux[0][4][0]$b$404 [1] 2'00 }
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][5][0]$450:
+      Old ports: A=$memory\mem$rdmux[0][5][0]$a$451, B=$memory\mem$rdmux[0][5][0]$b$452, Y=$memory\mem$rdmux[0][4][0]$a$403
+      New ports: A={ $memory\mem$rdmux[0][5][0]$a$451 [4] $memory\mem$rdmux[0][5][0]$a$451 [13] $memory\mem$rdmux[0][5][0]$a$451 [8] 1'0 $memory\mem$rdmux[0][5][0]$a$451 [1] 1'0 $memory\mem$rdmux[0][5][0]$a$451 [8] $memory\mem$rdmux[0][5][0]$a$451 [4] $memory\mem$rdmux[0][5][0]$a$451 [2:0] }, B={ $memory\mem$rdmux[0][5][0]$b$452 [8] $memory\mem$rdmux[0][5][0]$b$452 [13:8] $memory\mem$rdmux[0][5][0]$b$452 [4] 2'00 $memory\mem$rdmux[0][5][0]$b$452 [0] }, Y={ $memory\mem$rdmux[0][4][0]$a$403 [14:8] $memory\mem$rdmux[0][4][0]$a$403 [4] $memory\mem$rdmux[0][4][0]$a$403 [2:0] }
+      New connections: { $memory\mem$rdmux[0][4][0]$a$403 [15] $memory\mem$rdmux[0][4][0]$a$403 [7:5] $memory\mem$rdmux[0][4][0]$a$403 [3] } = { $memory\mem$rdmux[0][4][0]$a$403 [4] 4'0000 }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][4][0]$402:
+      Old ports: A=$memory\mem$rdmux[0][4][0]$a$403, B=$memory\mem$rdmux[0][4][0]$b$404, Y=$memory\mem$rdmux[0][3][0]$a$379
+      New ports: A={ $memory\mem$rdmux[0][4][0]$a$403 [4] $memory\mem$rdmux[0][4][0]$a$403 [14:8] 1'0 $memory\mem$rdmux[0][4][0]$a$403 [4] 1'0 $memory\mem$rdmux[0][4][0]$a$403 [2:0] }, B={ $memory\mem$rdmux[0][4][0]$b$404 [15:12] $memory\mem$rdmux[0][4][0]$b$404 [10] $memory\mem$rdmux[0][4][0]$b$404 [10:8] $memory\mem$rdmux[0][4][0]$b$404 [1] 1'0 $memory\mem$rdmux[0][4][0]$b$404 [3:1] 1'0 }, Y={ $memory\mem$rdmux[0][3][0]$a$379 [15:8] $memory\mem$rdmux[0][3][0]$a$379 [5:0] }
+      New connections: $memory\mem$rdmux[0][3][0]$a$379 [7:6] = { $memory\mem$rdmux[0][3][0]$a$379 [5] $memory\mem$rdmux[0][3][0]$a$379 [5] }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][3][0]$378:
+      Old ports: A=$memory\mem$rdmux[0][3][0]$a$379, B=16'0000000000000000, Y=$memory\mem$rdmux[0][2][0]$a$367
+      New ports: A={ $memory\mem$rdmux[0][3][0]$a$379 [15:8] $memory\mem$rdmux[0][3][0]$a$379 [5:0] }, B=14'00000000000000, Y={ $memory\mem$rdmux[0][2][0]$a$367 [15:8] $memory\mem$rdmux[0][2][0]$a$367 [5:0] }
+      New connections: $memory\mem$rdmux[0][2][0]$a$367 [7:6] = { $memory\mem$rdmux[0][2][0]$a$367 [5] $memory\mem$rdmux[0][2][0]$a$367 [5] }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][2][0]$366:
+      Old ports: A=$memory\mem$rdmux[0][2][0]$a$367, B=16'0000000000000000, Y=$memory\mem$rdmux[0][1][0]$a$361
+      New ports: A={ $memory\mem$rdmux[0][2][0]$a$367 [15:8] $memory\mem$rdmux[0][2][0]$a$367 [5:0] }, B=14'00000000000000, Y={ $memory\mem$rdmux[0][1][0]$a$361 [15:8] $memory\mem$rdmux[0][1][0]$a$361 [5:0] }
+      New connections: $memory\mem$rdmux[0][1][0]$a$361 [7:6] = { $memory\mem$rdmux[0][1][0]$a$361 [5] $memory\mem$rdmux[0][1][0]$a$361 [5] }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][1][0]$360:
+      Old ports: A=$memory\mem$rdmux[0][1][0]$a$361, B=16'0000000000000000, Y=$memory\mem$rdmux[0][0][0]$a$358
+      New ports: A={ $memory\mem$rdmux[0][1][0]$a$361 [15:8] $memory\mem$rdmux[0][1][0]$a$361 [5:0] }, B=14'00000000000000, Y={ $memory\mem$rdmux[0][0][0]$a$358 [15:8] $memory\mem$rdmux[0][0][0]$a$358 [5:0] }
+      New connections: $memory\mem$rdmux[0][0][0]$a$358 [7:6] = { $memory\mem$rdmux[0][0][0]$a$358 [5] $memory\mem$rdmux[0][0][0]$a$358 [5] }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][0][0]$357:
+      Old ports: A=$memory\mem$rdmux[0][0][0]$a$358, B=16'0000000000000000, Y=\data
+      New ports: A={ $memory\mem$rdmux[0][0][0]$a$358 [15:8] $memory\mem$rdmux[0][0][0]$a$358 [5:0] }, B=14'00000000000000, Y={ \data [15:8] \data [5:0] }
+      New connections: \data [7:6] = { \data [5] \data [5] }
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+    Consolidated identical input bits for $mux cell $ternary$rtl/control_unit.v:102$30:
+      Old ports: A=3'000, B=3'100, Y=$ternary$rtl/control_unit.v:102$30_Y
+      New ports: A=1'0, B=1'1, Y=$ternary$rtl/control_unit.v:102$30_Y [2]
+      New connections: $ternary$rtl/control_unit.v:102$30_Y [1:0] = 2'00
+    Consolidated identical input bits for $mux cell $ternary$rtl/control_unit.v:103$32:
+      Old ports: A=3'000, B=3'100, Y=$ternary$rtl/control_unit.v:103$32_Y
+      New ports: A=1'0, B=1'1, Y=$ternary$rtl/control_unit.v:103$32_Y [2]
+      New connections: $ternary$rtl/control_unit.v:103$32_Y [1:0] = 2'00
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 20 changes.
+
+10.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 4 cells.
+
+10.19.6. Executing OPT_SHARE pass.
+
+10.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 0 unused cells and 1017 unused wires.
+<suppressed ~2 debug messages>
+
+10.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+<suppressed ~1 debug messages>
+Optimizing module alu.
+Optimizing module control_unit.
+<suppressed ~2 debug messages>
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~268 debug messages>
+
+10.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+    Consolidated identical input bits for $mux cell $memory\mem$rdmux[0][6][2]$552:
+      Old ports: A={ $memory\mem$rdmux[0][6][0]$a$547 [10] 1'1 $memory\mem$rdmux[0][6][0]$a$547 [10] 1'0 $memory\mem$rdmux[0][6][0]$a$547 [2] $memory\mem$rdmux[0][6][0]$a$547 [10] 1'1 $memory\mem$rdmux[0][6][0]$a$547 [10] 2'00 }, B={ $memory\mem$rdmux[0][6][0]$a$547 [2] $memory\mem$rdmux[0][6][0]$a$547 [2] $memory\mem$rdmux[0][6][0]$a$547 [10] $memory\mem$rdmux[0][6][0]$a$547 [2] 5'00011 $memory\mem$rdmux[0][6][0]$a$547 [10] }, Y={ $memory\mem$rdmux[0][5][1]$a$454 [15:11] $memory\mem$rdmux[0][5][1]$a$454 [9:8] $memory\mem$rdmux[0][5][1]$a$454 [3:2] $memory\mem$rdmux[0][5][1]$a$454 [7] }
+      New ports: A={ $memory\mem$rdmux[0][6][0]$a$547 [10] 2'10 $memory\mem$rdmux[0][6][0]$a$547 [2] $memory\mem$rdmux[0][6][0]$a$547 [10] 1'1 $memory\mem$rdmux[0][6][0]$a$547 [10] 2'00 }, B={ $memory\mem$rdmux[0][6][0]$a$547 [2] $memory\mem$rdmux[0][6][0]$a$547 [2] $memory\mem$rdmux[0][6][0]$a$547 [2] 5'00011 $memory\mem$rdmux[0][6][0]$a$547 [10] }, Y={ $memory\mem$rdmux[0][5][1]$a$454 [15:14] $memory\mem$rdmux[0][5][1]$a$454 [12:11] $memory\mem$rdmux[0][5][1]$a$454 [9:8] $memory\mem$rdmux[0][5][1]$a$454 [3:2] $memory\mem$rdmux[0][5][1]$a$454 [7] }
+      New connections: $memory\mem$rdmux[0][5][1]$a$454 [13] = $memory\mem$rdmux[0][6][0]$a$547 [10]
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 1 changes.
+
+10.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.19.14. Executing OPT_SHARE pass.
+
+10.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\mem[9]$1140 ($dff) from module data_ram (D = \w_data, Q = \mem[9]).
+Adding EN signal on $memory\mem[99]$1320 ($dff) from module data_ram (D = \w_data, Q = \mem[99]).
+Adding EN signal on $memory\mem[98]$1318 ($dff) from module data_ram (D = \w_data, Q = \mem[98]).
+Adding EN signal on $memory\mem[97]$1316 ($dff) from module data_ram (D = \w_data, Q = \mem[97]).
+Adding EN signal on $memory\mem[96]$1314 ($dff) from module data_ram (D = \w_data, Q = \mem[96]).
+Adding EN signal on $memory\mem[95]$1312 ($dff) from module data_ram (D = \w_data, Q = \mem[95]).
+Adding EN signal on $memory\mem[94]$1310 ($dff) from module data_ram (D = \w_data, Q = \mem[94]).
+Adding EN signal on $memory\mem[93]$1308 ($dff) from module data_ram (D = \w_data, Q = \mem[93]).
+Adding EN signal on $memory\mem[92]$1306 ($dff) from module data_ram (D = \w_data, Q = \mem[92]).
+Adding EN signal on $memory\mem[91]$1304 ($dff) from module data_ram (D = \w_data, Q = \mem[91]).
+Adding EN signal on $memory\mem[90]$1302 ($dff) from module data_ram (D = \w_data, Q = \mem[90]).
+Adding EN signal on $memory\mem[8]$1138 ($dff) from module data_ram (D = \w_data, Q = \mem[8]).
+Adding EN signal on $memory\mem[89]$1300 ($dff) from module data_ram (D = \w_data, Q = \mem[89]).
+Adding EN signal on $memory\mem[88]$1298 ($dff) from module data_ram (D = \w_data, Q = \mem[88]).
+Adding EN signal on $memory\mem[87]$1296 ($dff) from module data_ram (D = \w_data, Q = \mem[87]).
+Adding EN signal on $memory\mem[86]$1294 ($dff) from module data_ram (D = \w_data, Q = \mem[86]).
+Adding EN signal on $memory\mem[85]$1292 ($dff) from module data_ram (D = \w_data, Q = \mem[85]).
+Adding EN signal on $memory\mem[84]$1290 ($dff) from module data_ram (D = \w_data, Q = \mem[84]).
+Adding EN signal on $memory\mem[83]$1288 ($dff) from module data_ram (D = \w_data, Q = \mem[83]).
+Adding EN signal on $memory\mem[82]$1286 ($dff) from module data_ram (D = \w_data, Q = \mem[82]).
+Adding EN signal on $memory\mem[81]$1284 ($dff) from module data_ram (D = \w_data, Q = \mem[81]).
+Adding EN signal on $memory\mem[80]$1282 ($dff) from module data_ram (D = \w_data, Q = \mem[80]).
+Adding EN signal on $memory\mem[7]$1136 ($dff) from module data_ram (D = \w_data, Q = \mem[7]).
+Adding EN signal on $memory\mem[79]$1280 ($dff) from module data_ram (D = \w_data, Q = \mem[79]).
+Adding EN signal on $memory\mem[78]$1278 ($dff) from module data_ram (D = \w_data, Q = \mem[78]).
+Adding EN signal on $memory\mem[77]$1276 ($dff) from module data_ram (D = \w_data, Q = \mem[77]).
+Adding EN signal on $memory\mem[76]$1274 ($dff) from module data_ram (D = \w_data, Q = \mem[76]).
+Adding EN signal on $memory\mem[75]$1272 ($dff) from module data_ram (D = \w_data, Q = \mem[75]).
+Adding EN signal on $memory\mem[74]$1270 ($dff) from module data_ram (D = \w_data, Q = \mem[74]).
+Adding EN signal on $memory\mem[73]$1268 ($dff) from module data_ram (D = \w_data, Q = \mem[73]).
+Adding EN signal on $memory\mem[72]$1266 ($dff) from module data_ram (D = \w_data, Q = \mem[72]).
+Adding EN signal on $memory\mem[71]$1264 ($dff) from module data_ram (D = \w_data, Q = \mem[71]).
+Adding EN signal on $memory\mem[70]$1262 ($dff) from module data_ram (D = \w_data, Q = \mem[70]).
+Adding EN signal on $memory\mem[6]$1134 ($dff) from module data_ram (D = \w_data, Q = \mem[6]).
+Adding EN signal on $memory\mem[69]$1260 ($dff) from module data_ram (D = \w_data, Q = \mem[69]).
+Adding EN signal on $memory\mem[68]$1258 ($dff) from module data_ram (D = \w_data, Q = \mem[68]).
+Adding EN signal on $memory\mem[67]$1256 ($dff) from module data_ram (D = \w_data, Q = \mem[67]).
+Adding EN signal on $memory\mem[66]$1254 ($dff) from module data_ram (D = \w_data, Q = \mem[66]).
+Adding EN signal on $memory\mem[65]$1252 ($dff) from module data_ram (D = \w_data, Q = \mem[65]).
+Adding EN signal on $memory\mem[64]$1250 ($dff) from module data_ram (D = \w_data, Q = \mem[64]).
+Adding EN signal on $memory\mem[63]$1248 ($dff) from module data_ram (D = \w_data, Q = \mem[63]).
+Adding EN signal on $memory\mem[62]$1246 ($dff) from module data_ram (D = \w_data, Q = \mem[62]).
+Adding EN signal on $memory\mem[61]$1244 ($dff) from module data_ram (D = \w_data, Q = \mem[61]).
+Adding EN signal on $memory\mem[60]$1242 ($dff) from module data_ram (D = \w_data, Q = \mem[60]).
+Adding EN signal on $memory\mem[5]$1132 ($dff) from module data_ram (D = \w_data, Q = \mem[5]).
+Adding EN signal on $memory\mem[59]$1240 ($dff) from module data_ram (D = \w_data, Q = \mem[59]).
+Adding EN signal on $memory\mem[58]$1238 ($dff) from module data_ram (D = \w_data, Q = \mem[58]).
+Adding EN signal on $memory\mem[57]$1236 ($dff) from module data_ram (D = \w_data, Q = \mem[57]).
+Adding EN signal on $memory\mem[56]$1234 ($dff) from module data_ram (D = \w_data, Q = \mem[56]).
+Adding EN signal on $memory\mem[55]$1232 ($dff) from module data_ram (D = \w_data, Q = \mem[55]).
+Adding EN signal on $memory\mem[54]$1230 ($dff) from module data_ram (D = \w_data, Q = \mem[54]).
+Adding EN signal on $memory\mem[53]$1228 ($dff) from module data_ram (D = \w_data, Q = \mem[53]).
+Adding EN signal on $memory\mem[52]$1226 ($dff) from module data_ram (D = \w_data, Q = \mem[52]).
+Adding EN signal on $memory\mem[51]$1224 ($dff) from module data_ram (D = \w_data, Q = \mem[51]).
+Adding EN signal on $memory\mem[50]$1222 ($dff) from module data_ram (D = \w_data, Q = \mem[50]).
+Adding EN signal on $memory\mem[4]$1130 ($dff) from module data_ram (D = \w_data, Q = \mem[4]).
+Adding EN signal on $memory\mem[49]$1220 ($dff) from module data_ram (D = \w_data, Q = \mem[49]).
+Adding EN signal on $memory\mem[48]$1218 ($dff) from module data_ram (D = \w_data, Q = \mem[48]).
+Adding EN signal on $memory\mem[47]$1216 ($dff) from module data_ram (D = \w_data, Q = \mem[47]).
+Adding EN signal on $memory\mem[46]$1214 ($dff) from module data_ram (D = \w_data, Q = \mem[46]).
+Adding EN signal on $memory\mem[45]$1212 ($dff) from module data_ram (D = \w_data, Q = \mem[45]).
+Adding EN signal on $memory\mem[44]$1210 ($dff) from module data_ram (D = \w_data, Q = \mem[44]).
+Adding EN signal on $memory\mem[43]$1208 ($dff) from module data_ram (D = \w_data, Q = \mem[43]).
+Adding EN signal on $memory\mem[42]$1206 ($dff) from module data_ram (D = \w_data, Q = \mem[42]).
+Adding EN signal on $memory\mem[41]$1204 ($dff) from module data_ram (D = \w_data, Q = \mem[41]).
+Adding EN signal on $memory\mem[40]$1202 ($dff) from module data_ram (D = \w_data, Q = \mem[40]).
+Adding EN signal on $memory\mem[3]$1128 ($dff) from module data_ram (D = \w_data, Q = \mem[3]).
+Adding EN signal on $memory\mem[39]$1200 ($dff) from module data_ram (D = \w_data, Q = \mem[39]).
+Adding EN signal on $memory\mem[38]$1198 ($dff) from module data_ram (D = \w_data, Q = \mem[38]).
+Adding EN signal on $memory\mem[37]$1196 ($dff) from module data_ram (D = \w_data, Q = \mem[37]).
+Adding EN signal on $memory\mem[36]$1194 ($dff) from module data_ram (D = \w_data, Q = \mem[36]).
+Adding EN signal on $memory\mem[35]$1192 ($dff) from module data_ram (D = \w_data, Q = \mem[35]).
+Adding EN signal on $memory\mem[34]$1190 ($dff) from module data_ram (D = \w_data, Q = \mem[34]).
+Adding EN signal on $memory\mem[33]$1188 ($dff) from module data_ram (D = \w_data, Q = \mem[33]).
+Adding EN signal on $memory\mem[32]$1186 ($dff) from module data_ram (D = \w_data, Q = \mem[32]).
+Adding EN signal on $memory\mem[31]$1184 ($dff) from module data_ram (D = \w_data, Q = \mem[31]).
+Adding EN signal on $memory\mem[30]$1182 ($dff) from module data_ram (D = \w_data, Q = \mem[30]).
+Adding EN signal on $memory\mem[2]$1126 ($dff) from module data_ram (D = \w_data, Q = \mem[2]).
+Adding EN signal on $memory\mem[29]$1180 ($dff) from module data_ram (D = \w_data, Q = \mem[29]).
+Adding EN signal on $memory\mem[28]$1178 ($dff) from module data_ram (D = \w_data, Q = \mem[28]).
+Adding EN signal on $memory\mem[27]$1176 ($dff) from module data_ram (D = \w_data, Q = \mem[27]).
+Adding EN signal on $memory\mem[26]$1174 ($dff) from module data_ram (D = \w_data, Q = \mem[26]).
+Adding EN signal on $memory\mem[25]$1172 ($dff) from module data_ram (D = \w_data, Q = \mem[25]).
+Adding EN signal on $memory\mem[255]$1632 ($dff) from module data_ram (D = \w_data, Q = \mem[255]).
+Adding EN signal on $memory\mem[254]$1630 ($dff) from module data_ram (D = \w_data, Q = \mem[254]).
+Adding EN signal on $memory\mem[253]$1628 ($dff) from module data_ram (D = \w_data, Q = \mem[253]).
+Adding EN signal on $memory\mem[252]$1626 ($dff) from module data_ram (D = \w_data, Q = \mem[252]).
+Adding EN signal on $memory\mem[251]$1624 ($dff) from module data_ram (D = \w_data, Q = \mem[251]).
+Adding EN signal on $memory\mem[250]$1622 ($dff) from module data_ram (D = \w_data, Q = \mem[250]).
+Adding EN signal on $memory\mem[24]$1170 ($dff) from module data_ram (D = \w_data, Q = \mem[24]).
+Adding EN signal on $memory\mem[249]$1620 ($dff) from module data_ram (D = \w_data, Q = \mem[249]).
+Adding EN signal on $memory\mem[248]$1618 ($dff) from module data_ram (D = \w_data, Q = \mem[248]).
+Adding EN signal on $memory\mem[247]$1616 ($dff) from module data_ram (D = \w_data, Q = \mem[247]).
+Adding EN signal on $memory\mem[246]$1614 ($dff) from module data_ram (D = \w_data, Q = \mem[246]).
+Adding EN signal on $memory\mem[245]$1612 ($dff) from module data_ram (D = \w_data, Q = \mem[245]).
+Adding EN signal on $memory\mem[244]$1610 ($dff) from module data_ram (D = \w_data, Q = \mem[244]).
+Adding EN signal on $memory\mem[243]$1608 ($dff) from module data_ram (D = \w_data, Q = \mem[243]).
+Adding EN signal on $memory\mem[242]$1606 ($dff) from module data_ram (D = \w_data, Q = \mem[242]).
+Adding EN signal on $memory\mem[241]$1604 ($dff) from module data_ram (D = \w_data, Q = \mem[241]).
+Adding EN signal on $memory\mem[240]$1602 ($dff) from module data_ram (D = \w_data, Q = \mem[240]).
+Adding EN signal on $memory\mem[23]$1168 ($dff) from module data_ram (D = \w_data, Q = \mem[23]).
+Adding EN signal on $memory\mem[239]$1600 ($dff) from module data_ram (D = \w_data, Q = \mem[239]).
+Adding EN signal on $memory\mem[238]$1598 ($dff) from module data_ram (D = \w_data, Q = \mem[238]).
+Adding EN signal on $memory\mem[237]$1596 ($dff) from module data_ram (D = \w_data, Q = \mem[237]).
+Adding EN signal on $memory\mem[236]$1594 ($dff) from module data_ram (D = \w_data, Q = \mem[236]).
+Adding EN signal on $memory\mem[235]$1592 ($dff) from module data_ram (D = \w_data, Q = \mem[235]).
+Adding EN signal on $memory\mem[234]$1590 ($dff) from module data_ram (D = \w_data, Q = \mem[234]).
+Adding EN signal on $memory\mem[233]$1588 ($dff) from module data_ram (D = \w_data, Q = \mem[233]).
+Adding EN signal on $memory\mem[232]$1586 ($dff) from module data_ram (D = \w_data, Q = \mem[232]).
+Adding EN signal on $memory\mem[231]$1584 ($dff) from module data_ram (D = \w_data, Q = \mem[231]).
+Adding EN signal on $memory\mem[230]$1582 ($dff) from module data_ram (D = \w_data, Q = \mem[230]).
+Adding EN signal on $memory\mem[22]$1166 ($dff) from module data_ram (D = \w_data, Q = \mem[22]).
+Adding EN signal on $memory\mem[229]$1580 ($dff) from module data_ram (D = \w_data, Q = \mem[229]).
+Adding EN signal on $memory\mem[228]$1578 ($dff) from module data_ram (D = \w_data, Q = \mem[228]).
+Adding EN signal on $memory\mem[227]$1576 ($dff) from module data_ram (D = \w_data, Q = \mem[227]).
+Adding EN signal on $memory\mem[226]$1574 ($dff) from module data_ram (D = \w_data, Q = \mem[226]).
+Adding EN signal on $memory\mem[225]$1572 ($dff) from module data_ram (D = \w_data, Q = \mem[225]).
+Adding EN signal on $memory\mem[224]$1570 ($dff) from module data_ram (D = \w_data, Q = \mem[224]).
+Adding EN signal on $memory\mem[223]$1568 ($dff) from module data_ram (D = \w_data, Q = \mem[223]).
+Adding EN signal on $memory\mem[222]$1566 ($dff) from module data_ram (D = \w_data, Q = \mem[222]).
+Adding EN signal on $memory\mem[221]$1564 ($dff) from module data_ram (D = \w_data, Q = \mem[221]).
+Adding EN signal on $memory\mem[220]$1562 ($dff) from module data_ram (D = \w_data, Q = \mem[220]).
+Adding EN signal on $memory\mem[21]$1164 ($dff) from module data_ram (D = \w_data, Q = \mem[21]).
+Adding EN signal on $memory\mem[219]$1560 ($dff) from module data_ram (D = \w_data, Q = \mem[219]).
+Adding EN signal on $memory\mem[218]$1558 ($dff) from module data_ram (D = \w_data, Q = \mem[218]).
+Adding EN signal on $memory\mem[217]$1556 ($dff) from module data_ram (D = \w_data, Q = \mem[217]).
+Adding EN signal on $memory\mem[216]$1554 ($dff) from module data_ram (D = \w_data, Q = \mem[216]).
+Adding EN signal on $memory\mem[215]$1552 ($dff) from module data_ram (D = \w_data, Q = \mem[215]).
+Adding EN signal on $memory\mem[214]$1550 ($dff) from module data_ram (D = \w_data, Q = \mem[214]).
+Adding EN signal on $memory\mem[213]$1548 ($dff) from module data_ram (D = \w_data, Q = \mem[213]).
+Adding EN signal on $memory\mem[212]$1546 ($dff) from module data_ram (D = \w_data, Q = \mem[212]).
+Adding EN signal on $memory\mem[211]$1544 ($dff) from module data_ram (D = \w_data, Q = \mem[211]).
+Adding EN signal on $memory\mem[210]$1542 ($dff) from module data_ram (D = \w_data, Q = \mem[210]).
+Adding EN signal on $memory\mem[20]$1162 ($dff) from module data_ram (D = \w_data, Q = \mem[20]).
+Adding EN signal on $memory\mem[209]$1540 ($dff) from module data_ram (D = \w_data, Q = \mem[209]).
+Adding EN signal on $memory\mem[208]$1538 ($dff) from module data_ram (D = \w_data, Q = \mem[208]).
+Adding EN signal on $memory\mem[207]$1536 ($dff) from module data_ram (D = \w_data, Q = \mem[207]).
+Adding EN signal on $memory\mem[206]$1534 ($dff) from module data_ram (D = \w_data, Q = \mem[206]).
+Adding EN signal on $memory\mem[205]$1532 ($dff) from module data_ram (D = \w_data, Q = \mem[205]).
+Adding EN signal on $memory\mem[204]$1530 ($dff) from module data_ram (D = \w_data, Q = \mem[204]).
+Adding EN signal on $memory\mem[203]$1528 ($dff) from module data_ram (D = \w_data, Q = \mem[203]).
+Adding EN signal on $memory\mem[202]$1526 ($dff) from module data_ram (D = \w_data, Q = \mem[202]).
+Adding EN signal on $memory\mem[201]$1524 ($dff) from module data_ram (D = \w_data, Q = \mem[201]).
+Adding EN signal on $memory\mem[200]$1522 ($dff) from module data_ram (D = \w_data, Q = \mem[200]).
+Adding EN signal on $memory\mem[1]$1124 ($dff) from module data_ram (D = \w_data, Q = \mem[1]).
+Adding EN signal on $memory\mem[19]$1160 ($dff) from module data_ram (D = \w_data, Q = \mem[19]).
+Adding EN signal on $memory\mem[199]$1520 ($dff) from module data_ram (D = \w_data, Q = \mem[199]).
+Adding EN signal on $memory\mem[198]$1518 ($dff) from module data_ram (D = \w_data, Q = \mem[198]).
+Adding EN signal on $memory\mem[197]$1516 ($dff) from module data_ram (D = \w_data, Q = \mem[197]).
+Adding EN signal on $memory\mem[196]$1514 ($dff) from module data_ram (D = \w_data, Q = \mem[196]).
+Adding EN signal on $memory\mem[195]$1512 ($dff) from module data_ram (D = \w_data, Q = \mem[195]).
+Adding EN signal on $memory\mem[194]$1510 ($dff) from module data_ram (D = \w_data, Q = \mem[194]).
+Adding EN signal on $memory\mem[193]$1508 ($dff) from module data_ram (D = \w_data, Q = \mem[193]).
+Adding EN signal on $memory\mem[192]$1506 ($dff) from module data_ram (D = \w_data, Q = \mem[192]).
+Adding EN signal on $memory\mem[191]$1504 ($dff) from module data_ram (D = \w_data, Q = \mem[191]).
+Adding EN signal on $memory\mem[190]$1502 ($dff) from module data_ram (D = \w_data, Q = \mem[190]).
+Adding EN signal on $memory\mem[18]$1158 ($dff) from module data_ram (D = \w_data, Q = \mem[18]).
+Adding EN signal on $memory\mem[189]$1500 ($dff) from module data_ram (D = \w_data, Q = \mem[189]).
+Adding EN signal on $memory\mem[188]$1498 ($dff) from module data_ram (D = \w_data, Q = \mem[188]).
+Adding EN signal on $memory\mem[187]$1496 ($dff) from module data_ram (D = \w_data, Q = \mem[187]).
+Adding EN signal on $memory\mem[186]$1494 ($dff) from module data_ram (D = \w_data, Q = \mem[186]).
+Adding EN signal on $memory\mem[185]$1492 ($dff) from module data_ram (D = \w_data, Q = \mem[185]).
+Adding EN signal on $memory\mem[184]$1490 ($dff) from module data_ram (D = \w_data, Q = \mem[184]).
+Adding EN signal on $memory\mem[183]$1488 ($dff) from module data_ram (D = \w_data, Q = \mem[183]).
+Adding EN signal on $memory\mem[182]$1486 ($dff) from module data_ram (D = \w_data, Q = \mem[182]).
+Adding EN signal on $memory\mem[181]$1484 ($dff) from module data_ram (D = \w_data, Q = \mem[181]).
+Adding EN signal on $memory\mem[180]$1482 ($dff) from module data_ram (D = \w_data, Q = \mem[180]).
+Adding EN signal on $memory\mem[17]$1156 ($dff) from module data_ram (D = \w_data, Q = \mem[17]).
+Adding EN signal on $memory\mem[179]$1480 ($dff) from module data_ram (D = \w_data, Q = \mem[179]).
+Adding EN signal on $memory\mem[178]$1478 ($dff) from module data_ram (D = \w_data, Q = \mem[178]).
+Adding EN signal on $memory\mem[177]$1476 ($dff) from module data_ram (D = \w_data, Q = \mem[177]).
+Adding EN signal on $memory\mem[176]$1474 ($dff) from module data_ram (D = \w_data, Q = \mem[176]).
+Adding EN signal on $memory\mem[175]$1472 ($dff) from module data_ram (D = \w_data, Q = \mem[175]).
+Adding EN signal on $memory\mem[174]$1470 ($dff) from module data_ram (D = \w_data, Q = \mem[174]).
+Adding EN signal on $memory\mem[173]$1468 ($dff) from module data_ram (D = \w_data, Q = \mem[173]).
+Adding EN signal on $memory\mem[172]$1466 ($dff) from module data_ram (D = \w_data, Q = \mem[172]).
+Adding EN signal on $memory\mem[171]$1464 ($dff) from module data_ram (D = \w_data, Q = \mem[171]).
+Adding EN signal on $memory\mem[170]$1462 ($dff) from module data_ram (D = \w_data, Q = \mem[170]).
+Adding EN signal on $memory\mem[16]$1154 ($dff) from module data_ram (D = \w_data, Q = \mem[16]).
+Adding EN signal on $memory\mem[169]$1460 ($dff) from module data_ram (D = \w_data, Q = \mem[169]).
+Adding EN signal on $memory\mem[168]$1458 ($dff) from module data_ram (D = \w_data, Q = \mem[168]).
+Adding EN signal on $memory\mem[167]$1456 ($dff) from module data_ram (D = \w_data, Q = \mem[167]).
+Adding EN signal on $memory\mem[166]$1454 ($dff) from module data_ram (D = \w_data, Q = \mem[166]).
+Adding EN signal on $memory\mem[165]$1452 ($dff) from module data_ram (D = \w_data, Q = \mem[165]).
+Adding EN signal on $memory\mem[164]$1450 ($dff) from module data_ram (D = \w_data, Q = \mem[164]).
+Adding EN signal on $memory\mem[163]$1448 ($dff) from module data_ram (D = \w_data, Q = \mem[163]).
+Adding EN signal on $memory\mem[162]$1446 ($dff) from module data_ram (D = \w_data, Q = \mem[162]).
+Adding EN signal on $memory\mem[161]$1444 ($dff) from module data_ram (D = \w_data, Q = \mem[161]).
+Adding EN signal on $memory\mem[160]$1442 ($dff) from module data_ram (D = \w_data, Q = \mem[160]).
+Adding EN signal on $memory\mem[15]$1152 ($dff) from module data_ram (D = \w_data, Q = \mem[15]).
+Adding EN signal on $memory\mem[159]$1440 ($dff) from module data_ram (D = \w_data, Q = \mem[159]).
+Adding EN signal on $memory\mem[158]$1438 ($dff) from module data_ram (D = \w_data, Q = \mem[158]).
+Adding EN signal on $memory\mem[157]$1436 ($dff) from module data_ram (D = \w_data, Q = \mem[157]).
+Adding EN signal on $memory\mem[156]$1434 ($dff) from module data_ram (D = \w_data, Q = \mem[156]).
+Adding EN signal on $memory\mem[155]$1432 ($dff) from module data_ram (D = \w_data, Q = \mem[155]).
+Adding EN signal on $memory\mem[154]$1430 ($dff) from module data_ram (D = \w_data, Q = \mem[154]).
+Adding EN signal on $memory\mem[153]$1428 ($dff) from module data_ram (D = \w_data, Q = \mem[153]).
+Adding EN signal on $memory\mem[152]$1426 ($dff) from module data_ram (D = \w_data, Q = \mem[152]).
+Adding EN signal on $memory\mem[151]$1424 ($dff) from module data_ram (D = \w_data, Q = \mem[151]).
+Adding EN signal on $memory\mem[150]$1422 ($dff) from module data_ram (D = \w_data, Q = \mem[150]).
+Adding EN signal on $memory\mem[14]$1150 ($dff) from module data_ram (D = \w_data, Q = \mem[14]).
+Adding EN signal on $memory\mem[149]$1420 ($dff) from module data_ram (D = \w_data, Q = \mem[149]).
+Adding EN signal on $memory\mem[148]$1418 ($dff) from module data_ram (D = \w_data, Q = \mem[148]).
+Adding EN signal on $memory\mem[147]$1416 ($dff) from module data_ram (D = \w_data, Q = \mem[147]).
+Adding EN signal on $memory\mem[146]$1414 ($dff) from module data_ram (D = \w_data, Q = \mem[146]).
+Adding EN signal on $memory\mem[145]$1412 ($dff) from module data_ram (D = \w_data, Q = \mem[145]).
+Adding EN signal on $memory\mem[144]$1410 ($dff) from module data_ram (D = \w_data, Q = \mem[144]).
+Adding EN signal on $memory\mem[143]$1408 ($dff) from module data_ram (D = \w_data, Q = \mem[143]).
+Adding EN signal on $memory\mem[142]$1406 ($dff) from module data_ram (D = \w_data, Q = \mem[142]).
+Adding EN signal on $memory\mem[141]$1404 ($dff) from module data_ram (D = \w_data, Q = \mem[141]).
+Adding EN signal on $memory\mem[140]$1402 ($dff) from module data_ram (D = \w_data, Q = \mem[140]).
+Adding EN signal on $memory\mem[13]$1148 ($dff) from module data_ram (D = \w_data, Q = \mem[13]).
+Adding EN signal on $memory\mem[139]$1400 ($dff) from module data_ram (D = \w_data, Q = \mem[139]).
+Adding EN signal on $memory\mem[138]$1398 ($dff) from module data_ram (D = \w_data, Q = \mem[138]).
+Adding EN signal on $memory\mem[137]$1396 ($dff) from module data_ram (D = \w_data, Q = \mem[137]).
+Adding EN signal on $memory\mem[136]$1394 ($dff) from module data_ram (D = \w_data, Q = \mem[136]).
+Adding EN signal on $memory\mem[135]$1392 ($dff) from module data_ram (D = \w_data, Q = \mem[135]).
+Adding EN signal on $memory\mem[134]$1390 ($dff) from module data_ram (D = \w_data, Q = \mem[134]).
+Adding EN signal on $memory\mem[133]$1388 ($dff) from module data_ram (D = \w_data, Q = \mem[133]).
+Adding EN signal on $memory\mem[132]$1386 ($dff) from module data_ram (D = \w_data, Q = \mem[132]).
+Adding EN signal on $memory\mem[131]$1384 ($dff) from module data_ram (D = \w_data, Q = \mem[131]).
+Adding EN signal on $memory\mem[130]$1382 ($dff) from module data_ram (D = \w_data, Q = \mem[130]).
+Adding EN signal on $memory\mem[12]$1146 ($dff) from module data_ram (D = \w_data, Q = \mem[12]).
+Adding EN signal on $memory\mem[129]$1380 ($dff) from module data_ram (D = \w_data, Q = \mem[129]).
+Adding EN signal on $memory\mem[128]$1378 ($dff) from module data_ram (D = \w_data, Q = \mem[128]).
+Adding EN signal on $memory\mem[127]$1376 ($dff) from module data_ram (D = \w_data, Q = \mem[127]).
+Adding EN signal on $memory\mem[126]$1374 ($dff) from module data_ram (D = \w_data, Q = \mem[126]).
+Adding EN signal on $memory\mem[125]$1372 ($dff) from module data_ram (D = \w_data, Q = \mem[125]).
+Adding EN signal on $memory\mem[124]$1370 ($dff) from module data_ram (D = \w_data, Q = \mem[124]).
+Adding EN signal on $memory\mem[123]$1368 ($dff) from module data_ram (D = \w_data, Q = \mem[123]).
+Adding EN signal on $memory\mem[122]$1366 ($dff) from module data_ram (D = \w_data, Q = \mem[122]).
+Adding EN signal on $memory\mem[121]$1364 ($dff) from module data_ram (D = \w_data, Q = \mem[121]).
+Adding EN signal on $memory\mem[120]$1362 ($dff) from module data_ram (D = \w_data, Q = \mem[120]).
+Adding EN signal on $memory\mem[11]$1144 ($dff) from module data_ram (D = \w_data, Q = \mem[11]).
+Adding EN signal on $memory\mem[119]$1360 ($dff) from module data_ram (D = \w_data, Q = \mem[119]).
+Adding EN signal on $memory\mem[118]$1358 ($dff) from module data_ram (D = \w_data, Q = \mem[118]).
+Adding EN signal on $memory\mem[117]$1356 ($dff) from module data_ram (D = \w_data, Q = \mem[117]).
+Adding EN signal on $memory\mem[116]$1354 ($dff) from module data_ram (D = \w_data, Q = \mem[116]).
+Adding EN signal on $memory\mem[115]$1352 ($dff) from module data_ram (D = \w_data, Q = \mem[115]).
+Adding EN signal on $memory\mem[114]$1350 ($dff) from module data_ram (D = \w_data, Q = \mem[114]).
+Adding EN signal on $memory\mem[113]$1348 ($dff) from module data_ram (D = \w_data, Q = \mem[113]).
+Adding EN signal on $memory\mem[112]$1346 ($dff) from module data_ram (D = \w_data, Q = \mem[112]).
+Adding EN signal on $memory\mem[111]$1344 ($dff) from module data_ram (D = \w_data, Q = \mem[111]).
+Adding EN signal on $memory\mem[110]$1342 ($dff) from module data_ram (D = \w_data, Q = \mem[110]).
+Adding EN signal on $memory\mem[10]$1142 ($dff) from module data_ram (D = \w_data, Q = \mem[10]).
+Adding EN signal on $memory\mem[109]$1340 ($dff) from module data_ram (D = \w_data, Q = \mem[109]).
+Adding EN signal on $memory\mem[108]$1338 ($dff) from module data_ram (D = \w_data, Q = \mem[108]).
+Adding EN signal on $memory\mem[107]$1336 ($dff) from module data_ram (D = \w_data, Q = \mem[107]).
+Adding EN signal on $memory\mem[106]$1334 ($dff) from module data_ram (D = \w_data, Q = \mem[106]).
+Adding EN signal on $memory\mem[105]$1332 ($dff) from module data_ram (D = \w_data, Q = \mem[105]).
+Adding EN signal on $memory\mem[104]$1330 ($dff) from module data_ram (D = \w_data, Q = \mem[104]).
+Adding EN signal on $memory\mem[103]$1328 ($dff) from module data_ram (D = \w_data, Q = \mem[103]).
+Adding EN signal on $memory\mem[102]$1326 ($dff) from module data_ram (D = \w_data, Q = \mem[102]).
+Adding EN signal on $memory\mem[101]$1324 ($dff) from module data_ram (D = \w_data, Q = \mem[101]).
+Adding EN signal on $memory\mem[100]$1322 ($dff) from module data_ram (D = \w_data, Q = \mem[100]).
+Adding EN signal on $memory\mem[0]$1122 ($dff) from module data_ram (D = \w_data, Q = \mem[0]).
+
+10.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 256 unused cells and 258 unused wires.
+<suppressed ~258 debug messages>
+
+10.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \control_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \data_ram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ir..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \nova8_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \pc..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+10.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \control_unit.
+  Optimizing cells in module \data_ram.
+  Optimizing cells in module \ir.
+  Optimizing cells in module \nova8_top.
+  Optimizing cells in module \pc.
+  Optimizing cells in module \reg_file.
+Performed a total of 0 changes.
+
+10.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 0 cells.
+
+10.19.22. Executing OPT_SHARE pass.
+
+10.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+
+10.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.19.26. Finished OPT passes. (There is nothing left to do.)
+
+10.20. Executing TECHMAP pass (map to technology primitives).
+
+10.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+10.20.2. Continuing TECHMAP pass.
+Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $dffe.
+Using template $paramod$5ccf584370207a3ccc3032757a8e590623d4de56\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $sdff.
+Using template $paramod$78e969f2586efcf3a5b0b0440bcca0db83d5cca2\_90_alu for cells of type $alu.
+Using template $paramod$85df5dc01c7df96a7d8e5f1fdf76ce9ac452af63\_90_pmux for cells of type $pmux.
+Using template $paramod$56f7ce6d87f8add68ca646dc02d7695a3189f8e5\_90_pmux for cells of type $pmux.
+Using template $paramod$d629d85c8826a74239b9178d1930215a43b0ceb0\_90_pmux for cells of type $pmux.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod$4ccbe221165818e15f326ddee3d1183c7924e12f\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $ne.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$b3b6ac92d800c6f07aa48f510f923d86a674e5a7\_90_pmux for cells of type $pmux.
+Using template $paramod$72f7795a18b8bd21d2def9f98cbb7d0e4ff65a7f\_90_pmux for cells of type $pmux.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001001 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~2146 debug messages>
+
+10.21. Executing OPT pass (performing simple optimizations).
+
+10.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+<suppressed ~4 debug messages>
+Optimizing module alu.
+<suppressed ~103 debug messages>
+Optimizing module control_unit.
+<suppressed ~116 debug messages>
+Optimizing module data_ram.
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+<suppressed ~43 debug messages>
+Optimizing module reg_file.
+<suppressed ~14 debug messages>
+
+10.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+<suppressed ~48 debug messages>
+Finding identical cells in module `\alu'.
+<suppressed ~153 debug messages>
+Finding identical cells in module `\control_unit'.
+<suppressed ~120 debug messages>
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\reg_file'.
+<suppressed ~6 debug messages>
+Removed a total of 110 cells.
+
+10.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 24 unused cells and 545 unused wires.
+<suppressed ~29 debug messages>
+
+10.21.5. Finished fast OPT passes.
+
+10.22. Executing ABC pass (technology mapping using ABC).
+
+10.22.1. Extracting gate netlist of module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom' to `<abc-temp-dir>/input.blif'..
+Extracted 100 gates and 110 wires to a netlist network with 8 inputs and 14 outputs.
+
+10.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        4
+ABC RESULTS:            ANDNOT cells:       14
+ABC RESULTS:               MUX cells:       21
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:               NOT cells:        5
+ABC RESULTS:                OR cells:       54
+ABC RESULTS:             ORNOT cells:        3
+ABC RESULTS:        internal signals:       88
+ABC RESULTS:           input signals:        8
+ABC RESULTS:          output signals:       14
+Removing temp directory.
+
+10.22.2. Extracting gate netlist of module `\alu' to `<abc-temp-dir>/input.blif'..
+Extracted 327 gates and 351 wires to a netlist network with 24 inputs and 12 outputs.
+
+10.22.2.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.22.2.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       15
+ABC RESULTS:            ANDNOT cells:      109
+ABC RESULTS:               MUX cells:       14
+ABC RESULTS:              NAND cells:        7
+ABC RESULTS:               NOR cells:       29
+ABC RESULTS:               NOT cells:       12
+ABC RESULTS:                OR cells:       75
+ABC RESULTS:             ORNOT cells:       12
+ABC RESULTS:              XNOR cells:       10
+ABC RESULTS:               XOR cells:       16
+ABC RESULTS:        internal signals:      315
+ABC RESULTS:           input signals:       24
+ABC RESULTS:          output signals:       12
+Removing temp directory.
+
+10.22.3. Extracting gate netlist of module `\control_unit' to `<abc-temp-dir>/input.blif'..
+Extracted 112 gates and 126 wires to a netlist network with 12 inputs and 13 outputs.
+
+10.22.3.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.22.3.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        5
+ABC RESULTS:            ANDNOT cells:       30
+ABC RESULTS:               MUX cells:        2
+ABC RESULTS:              NAND cells:        3
+ABC RESULTS:               NOR cells:        8
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:       16
+ABC RESULTS:             ORNOT cells:        7
+ABC RESULTS:        internal signals:      101
+ABC RESULTS:           input signals:       12
+ABC RESULTS:          output signals:       13
+Removing temp directory.
+
+10.22.4. Extracting gate netlist of module `\data_ram' to `<abc-temp-dir>/input.blif'..
+Extracted 2608 gates and 4665 wires to a netlist network with 2057 inputs and 264 outputs.
+
+10.22.4.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.22.4.2. Re-integrating ABC results.
+ABC RESULTS:            ANDNOT cells:      256
+ABC RESULTS:               MUX cells:     2040
+ABC RESULTS:              NAND cells:        4
+ABC RESULTS:               NOT cells:        7
+ABC RESULTS:                OR cells:      292
+ABC RESULTS:             ORNOT cells:        8
+ABC RESULTS:        internal signals:     2344
+ABC RESULTS:           input signals:     2057
+ABC RESULTS:          output signals:      264
+Removing temp directory.
+
+10.22.5. Extracting gate netlist of module `\ir' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+10.22.6. Extracting gate netlist of module `\nova8_top' to `<abc-temp-dir>/input.blif'..
+Extracted 16 gates and 50 wires to a netlist network with 34 inputs and 16 outputs.
+
+10.22.6.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.22.6.2. Re-integrating ABC results.
+ABC RESULTS:               MUX cells:       16
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:       34
+ABC RESULTS:          output signals:       16
+Removing temp directory.
+
+10.22.7. Extracting gate netlist of module `\pc' to `<abc-temp-dir>/input.blif'..
+Extracted 25 gates and 43 wires to a netlist network with 18 inputs and 9 outputs.
+
+10.22.7.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.22.7.2. Re-integrating ABC results.
+ABC RESULTS:            ANDNOT cells:        3
+ABC RESULTS:               MUX cells:        8
+ABC RESULTS:              NAND cells:        3
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:        3
+ABC RESULTS:              XNOR cells:        3
+ABC RESULTS:               XOR cells:        4
+ABC RESULTS:        internal signals:       16
+ABC RESULTS:           input signals:       18
+ABC RESULTS:          output signals:        9
+Removing temp directory.
+
+10.22.8. Extracting gate netlist of module `\reg_file' to `<abc-temp-dir>/input.blif'..
+Extracted 130 gates and 169 wires to a netlist network with 39 inputs and 20 outputs.
+
+10.22.8.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.22.8.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:            ANDNOT cells:       52
+ABC RESULTS:               MUX cells:       16
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:                OR cells:       35
+ABC RESULTS:             ORNOT cells:        6
+ABC RESULTS:        internal signals:      110
+ABC RESULTS:           input signals:       39
+ABC RESULTS:          output signals:       20
+Removing temp directory.
+
+10.23. Executing OPT pass (performing simple optimizations).
+
+10.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom.
+<suppressed ~12 debug messages>
+Optimizing module alu.
+Optimizing module control_unit.
+Optimizing module data_ram.
+<suppressed ~1016 debug messages>
+Optimizing module ir.
+Optimizing module nova8_top.
+Optimizing module pc.
+Optimizing module reg_file.
+
+10.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom'.
+Finding identical cells in module `\alu'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\control_unit'.
+Finding identical cells in module `\data_ram'.
+Finding identical cells in module `\ir'.
+Finding identical cells in module `\nova8_top'.
+Finding identical cells in module `\pc'.
+Finding identical cells in module `\reg_file'.
+Removed a total of 2 cells.
+
+10.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \control_unit..
+Finding unused cells or wires in module \data_ram..
+Finding unused cells or wires in module \ir..
+Finding unused cells or wires in module \nova8_top..
+Finding unused cells or wires in module \pc..
+Finding unused cells or wires in module \reg_file..
+Removed 7 unused cells and 3366 unused wires.
+<suppressed ~20 debug messages>
+
+10.23.5. Finished fast OPT passes.
+
+10.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `nova8_top'. Setting top module to nova8_top.
+
+10.24.1. Analyzing design hierarchy..
+Top module:  \nova8_top
+Used module:     \alu
+Used module:     \control_unit
+Used module:     \ir
+Used module:     \pc
+Used module:     \data_ram
+Used module:     \reg_file
+Used module:     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom
+
+10.24.2. Analyzing design hierarchy..
+Top module:  \nova8_top
+Used module:     \alu
+Used module:     \control_unit
+Used module:     \ir
+Used module:     \pc
+Used module:     \data_ram
+Used module:     \reg_file
+Used module:     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom
+Removed 0 unused modules.
+
+10.25. Printing statistics.
+
+=== $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom ===
+
+   Number of wires:                 91
+   Number of wire bits:            113
+   Number of public wires:           2
+   Number of public wire bits:      24
+   Number of ports:                  2
+   Number of port bits:             24
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                103
+     $_ANDNOT_                      14
+     $_AND_                          4
+     $_MUX_                         21
+     $_NAND_                         1
+     $_NOR_                          1
+     $_NOT_                          5
+     $_ORNOT_                        3
+     $_OR_                          54
+
+=== alu ===
+
+   Number of wires:                291
+   Number of wire bits:            321
+   Number of public wires:           6
+   Number of public wire bits:      36
+   Number of ports:                  6
+   Number of port bits:             36
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                297
+     $_ANDNOT_                     109
+     $_AND_                         15
+     $_MUX_                         14
+     $_NAND_                         7
+     $_NOR_                         29
+     $_NOT_                         12
+     $_ORNOT_                       12
+     $_OR_                          74
+     $_XNOR_                         9
+     $_XOR_                         16
+
+=== control_unit ===
+
+   Number of wires:                 77
+   Number of wire bits:             88
+   Number of public wires:          18
+   Number of public wire bits:      29
+   Number of ports:                 17
+   Number of port bits:             26
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 75
+     $_ANDNOT_                      30
+     $_AND_                          5
+     $_MUX_                          2
+     $_NAND_                         3
+     $_NOR_                          8
+     $_NOT_                          1
+     $_ORNOT_                        7
+     $_OR_                          16
+     $_SDFF_PP0_                     3
+
+=== data_ram ===
+
+   Number of wires:               2853
+   Number of wire bits:           4666
+   Number of public wires:         261
+   Number of public wire bits:    2074
+   Number of ports:                  5
+   Number of port bits:             26
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4648
+     $_ANDNOT_                     256
+     $_DFFE_PP_                   2048
+     $_MUX_                       2040
+     $_NAND_                         4
+     $_ORNOT_                        8
+     $_OR_                         292
+
+=== ir ===
+
+   Number of wires:                  9
+   Number of wire bits:             51
+   Number of public wires:           9
+   Number of public wire bits:      51
+   Number of ports:                  9
+   Number of port bits:             51
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     $_SDFFE_PP0P_                  16
+
+=== nova8_top ===
+
+   Number of wires:                 34
+   Number of wire bits:            161
+   Number of public wires:          34
+   Number of public wire bits:     161
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 43
+     $_MUX_                         16
+     $_SDFFE_PP0P_                  20
+     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom      1
+     alu                             1
+     control_unit                    1
+     data_ram                        1
+     ir                              1
+     pc                              1
+     reg_file                        1
+
+=== pc ===
+
+   Number of wires:                 31
+   Number of wire bits:             45
+   Number of public wires:           6
+   Number of public wire bits:      20
+   Number of ports:                  6
+   Number of port bits:             20
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 33
+     $_ANDNOT_                       3
+     $_MUX_                          8
+     $_NAND_                         3
+     $_NOT_                          1
+     $_OR_                           3
+     $_SDFFE_PP0P_                   8
+     $_XNOR_                         3
+     $_XOR_                          4
+
+=== reg_file ===
+
+   Number of wires:                109
+   Number of wire bits:            161
+   Number of public wires:          13
+   Number of public wire bits:      65
+   Number of ports:                  9
+   Number of port bits:             33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                144
+     $_ANDNOT_                      52
+     $_AND_                          2
+     $_MUX_                         16
+     $_NAND_                         1
+     $_ORNOT_                        6
+     $_OR_                          35
+     $_SDFFE_PP0P_                  32
+
+=== design hierarchy ===
+
+   nova8_top                         1
+     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom      1
+     alu                             1
+     control_unit                    1
+     data_ram                        1
+     ir                              1
+     pc                              1
+     reg_file                        1
+
+   Number of wires:               3495
+   Number of wire bits:           5606
+   Number of public wires:         349
+   Number of public wire bits:    2460
+   Number of ports:                 61
+   Number of port bits:            244
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               5352
+     $_ANDNOT_                     464
+     $_AND_                         26
+     $_DFFE_PP_                   2048
+     $_MUX_                       2117
+     $_NAND_                        19
+     $_NOR_                         38
+     $_NOT_                         19
+     $_ORNOT_                       36
+     $_OR_                         474
+     $_SDFFE_PP0P_                  76
+     $_SDFF_PP0_                     3
+     $_XNOR_                        12
+     $_XOR_                         20
+
+10.26. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom...
+Checking module alu...
+Checking module control_unit...
+Checking module data_ram...
+Checking module ir...
+Checking module nova8_top...
+Checking module pc...
+Checking module reg_file...
+Found and reported 0 problems.
+
+11. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom...
+Checking module alu...
+Checking module control_unit...
+Checking module data_ram...
+Checking module ir...
+Checking module nova8_top...
+Checking module pc...
+Checking module reg_file...
+Found and reported 0 problems.
+
+12. Printing statistics.
+
+=== $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom ===
+
+   Number of wires:                 91
+   Number of wire bits:            113
+   Number of public wires:           2
+   Number of public wire bits:      24
+   Number of ports:                  2
+   Number of port bits:             24
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                103
+     $_ANDNOT_                      14
+     $_AND_                          4
+     $_MUX_                         21
+     $_NAND_                         1
+     $_NOR_                          1
+     $_NOT_                          5
+     $_ORNOT_                        3
+     $_OR_                          54
+
+=== alu ===
+
+   Number of wires:                291
+   Number of wire bits:            321
+   Number of public wires:           6
+   Number of public wire bits:      36
+   Number of ports:                  6
+   Number of port bits:             36
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                297
+     $_ANDNOT_                     109
+     $_AND_                         15
+     $_MUX_                         14
+     $_NAND_                         7
+     $_NOR_                         29
+     $_NOT_                         12
+     $_ORNOT_                       12
+     $_OR_                          74
+     $_XNOR_                         9
+     $_XOR_                         16
+
+=== control_unit ===
+
+   Number of wires:                 77
+   Number of wire bits:             88
+   Number of public wires:          18
+   Number of public wire bits:      29
+   Number of ports:                 17
+   Number of port bits:             26
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 75
+     $_ANDNOT_                      30
+     $_AND_                          5
+     $_MUX_                          2
+     $_NAND_                         3
+     $_NOR_                          8
+     $_NOT_                          1
+     $_ORNOT_                        7
+     $_OR_                          16
+     $_SDFF_PP0_                     3
+
+=== data_ram ===
+
+   Number of wires:               2853
+   Number of wire bits:           4666
+   Number of public wires:         261
+   Number of public wire bits:    2074
+   Number of ports:                  5
+   Number of port bits:             26
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4648
+     $_ANDNOT_                     256
+     $_DFFE_PP_                   2048
+     $_MUX_                       2040
+     $_NAND_                         4
+     $_ORNOT_                        8
+     $_OR_                         292
+
+=== ir ===
+
+   Number of wires:                  9
+   Number of wire bits:             51
+   Number of public wires:           9
+   Number of public wire bits:      51
+   Number of ports:                  9
+   Number of port bits:             51
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     $_SDFFE_PP0P_                  16
+
+=== nova8_top ===
+
+   Number of wires:                 34
+   Number of wire bits:            161
+   Number of public wires:          34
+   Number of public wire bits:     161
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 43
+     $_MUX_                         16
+     $_SDFFE_PP0P_                  20
+     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom      1
+     alu                             1
+     control_unit                    1
+     data_ram                        1
+     ir                              1
+     pc                              1
+     reg_file                        1
+
+=== pc ===
+
+   Number of wires:                 31
+   Number of wire bits:             45
+   Number of public wires:           6
+   Number of public wire bits:      20
+   Number of ports:                  6
+   Number of port bits:             20
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 33
+     $_ANDNOT_                       3
+     $_MUX_                          8
+     $_NAND_                         3
+     $_NOT_                          1
+     $_OR_                           3
+     $_SDFFE_PP0P_                   8
+     $_XNOR_                         3
+     $_XOR_                          4
+
+=== reg_file ===
+
+   Number of wires:                109
+   Number of wire bits:            161
+   Number of public wires:          13
+   Number of public wire bits:      65
+   Number of ports:                  9
+   Number of port bits:             33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                144
+     $_ANDNOT_                      52
+     $_AND_                          2
+     $_MUX_                         16
+     $_NAND_                         1
+     $_ORNOT_                        6
+     $_OR_                          35
+     $_SDFFE_PP0P_                  32
+
+=== design hierarchy ===
+
+   nova8_top                         1
+     $paramod$4a16c16ec2d189672769533ad648045dcce59cba\instr_rom      1
+     alu                             1
+     control_unit                    1
+     data_ram                        1
+     ir                              1
+     pc                              1
+     reg_file                        1
+
+   Number of wires:               3495
+   Number of wire bits:           5606
+   Number of public wires:         349
+   Number of public wire bits:    2460
+   Number of ports:                 61
+   Number of port bits:            244
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               5352
+     $_ANDNOT_                     464
+     $_AND_                         26
+     $_DFFE_PP_                   2048
+     $_MUX_                       2117
+     $_NAND_                        19
+     $_NOR_                         38
+     $_NOT_                         19
+     $_ORNOT_                       36
+     $_OR_                         474
+     $_SDFFE_PP0P_                  76
+     $_SDFF_PP0_                     3
+     $_XNOR_                        12
+     $_XOR_                         20
+
+End of script. Logfile hash: 044eae1b08, CPU: user 0.59s system 0.02s, MEM: 31.17 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 39% 1x abc (0 sec), 15% 26x opt_expr (0 sec), ...

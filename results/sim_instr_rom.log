@@ -1,0 +1,13 @@
+VCD info: dumpfile sim/tb_instr_rom.vcd opened for output.
+PASS  first word : rom[00]=1234
+PASS  second word : rom[01]=abcd
+PASS  zero word in file : rom[02]=0000
+PASS  all ones word : rom[03]=ffff
+PASS  middle word 80 : rom[80]=5a5a
+PASS  last address FF : rom[ff]=f000
+PASS  re-read address 00 : rom[00]=1234
+PASS  other 250 words are 0000
+------------------------------------------
+SUMMARY tb_instr_rom: 8 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_instr_rom.v:74: $finish called at 320000 (1ps)

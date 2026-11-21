@@ -1,0 +1,23 @@
+VCD info: dumpfile sim/tb_reg_file.vcd opened for output.
+PASS  reset R0,R1 = 0 : R0=00 R1=00
+PASS  reset R2,R3 = 0 : R2=00 R3=00
+PASS  read R0 on A, R1 on B : R0=a5 R1=3c
+PASS  read R2 on A, R3 on B : R2=ff R3=01
+PASS  read R3 on A, R0 on B : R3=01 R0=a5
+PASS  read R1 on A, R2 on B : R1=3c R2=ff
+PASS  both ports read R0 : a5
+PASS  both ports read R1 : 3c
+PASS  both ports read R2 : ff
+PASS  both ports read R3 : 01
+PASS  w_en=0 does not write R1 : R1=3c R0=a5
+PASS  overwrite R2, R3 unchanged : R2=00 R3=01
+PASS  overwrite R2, R0,R1 same : R0=a5 R1=3c
+PASS  before edge R3 still old : R3=01 R3=01
+PASS  after edge R3 updated : R3=7e R3=7e
+PASS  re-reset R0,R1 = 0 : R0=00 R1=00
+PASS  re-reset R2,R3 = 0 : R2=00 R3=00
+PASS  reset beats write to R0 : R0=00 R0=00
+------------------------------------------
+SUMMARY tb_reg_file: 18 passed, 0 failed
+RESULT: ALL TESTS PASSED
+tb/tb_reg_file.v:149: $finish called at 201000 (1ps)
