@@ -1,0 +1,36 @@
+# NOVA-8 synthesis script (generic Yosys gates, no FPGA/ASIC library)
+#
+# Run from the project root:
+#     yosys -p "script synth/synth.ys"
+#
+# The ROM contents come from programs/program.hex, so the ROM size
+# depends on which program is loaded.
+#
+# Reports written:
+#     synth/nova8_check.txt      design checks (latches, multiple drivers, ...)
+#     synth/nova8_stat.txt       cell count per module (hierarchy kept)
+#     synth/nova8_flat_stat.txt  cell count after flattening the whole CPU
+
+read_verilog rtl/alu.v
+read_verilog rtl/reg_file.v
+read_verilog rtl/pc.v
+read_verilog rtl/ir.v
+read_verilog rtl/instr_rom.v
+read_verilog rtl/data_ram.v
+read_verilog rtl/control_unit.v
+read_verilog rtl/nova8_top.v
+
+hierarchy -check -top nova8_top
+
+# keep a copy of the unsynthesized design for the flattened run
+design -save rtl
+
+synth -top nova8_top
+
+tee -q -o synth/nova8_check.txt check
+tee -q -o synth/nova8_stat.txt stat
+
+# flattened: start again from the RTL, lets Yosys optimise across modules
+design -load rtl
+synth -flatten -top nova8_top
+tee -q -o synth/nova8_flat_stat.txt stat

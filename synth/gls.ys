@@ -1,0 +1,27 @@
+# NOVA-8 gate-level netlist for tb/tb_gls.v
+#
+# The program is read from sim/gls_prog.hex, so copy the program there
+# first and add the write_verilog command at the end, e.g.
+#     cp programs/fib.hex sim/gls_prog.hex
+#     yosys -p "script synth/gls.ys; write_verilog -noattr sim/nova8_gate_fib.v"
+# run.ps1 gls / make gls do both steps for every program.
+#
+# write_verilog prints the generic gate cells as plain assign/always
+# code, so the netlist simulates without Yosys' simcells.v.
+
+read_verilog rtl/alu.v
+read_verilog rtl/reg_file.v
+read_verilog rtl/pc.v
+read_verilog rtl/ir.v
+read_verilog rtl/instr_rom.v
+read_verilog rtl/data_ram.v
+read_verilog rtl/control_unit.v
+read_verilog rtl/nova8_top.v
+
+chparam -set PROG_FILE "sim/gls_prog.hex" nova8_top
+synth -flatten -top nova8_top
+
+# new name so the netlist can be compiled together with the RTL
+rename nova8_top nova8_gate
+hierarchy -top nova8_gate
+stat

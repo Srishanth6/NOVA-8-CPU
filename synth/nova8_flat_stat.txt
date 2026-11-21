@@ -1,0 +1,29 @@
+
+14. Printing statistics.
+
+=== nova8_top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1975 wires
+     3663 wire bits
+      276 public wires
+     1873 public wire bits
+        7 ports
+       28 port bits
+     2388 cells
+       92   $_ANDNOT_
+      493   $_AND_
+      512   $_DFFE_PP_
+        6   $_DFF_P_
+      274   $_MUX_
+      716   $_NAND_
+       40   $_NOR_
+       32   $_NOT_
+       32   $_ORNOT_
+       91   $_OR_
+       73   $_SDFFE_PP0P_
+       13   $_XNOR_
+        7   $_XOR_
+        7   $scopeinfo
+
